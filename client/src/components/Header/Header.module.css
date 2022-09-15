@@ -1,0 +1,13 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    font-size: large;
+    justify-content: space-between;
+    font-family: "Rubik", sans-serif;
+}
+.link{
+    text-decoration: none;
+}
+.link:visited{
+    color: blue;
+}

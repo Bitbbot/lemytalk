@@ -43,16 +43,12 @@ function App() {
                 <div className="App">
                     <Header user={user} />
                     <Routes>
-                        {/*<Route exact path="/" element={<Home />} />*/}
                         <Route
                             exact
                             path="/login"
                             element={user ? <Navigate to="/" /> : <Login />}
                         />
-                        <Route
-                            path="/user"
-                            element={user ? <User user={user} /> : <Home />}
-                        />
+                        <Route path="/" element={user ? <Home /> : <Home />} />
                     </Routes>
                 </div>
             </Router>

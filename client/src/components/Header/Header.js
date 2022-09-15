@@ -1,24 +1,28 @@
 import { Link } from "react-router-dom";
+import s from "./Header.module.css";
 
 const Header = ({ user }) => {
     const logout = () => {
         window.open("http://localhost:5000/auth/logout", "_self");
     };
     return (
-        <div>
-            Header
-            {user ? (
-                <ul className="list">
-                    <li className="listItem">{user.displayName}</li>
-                    <li className="listItem" onClick={logout}>
-                        Logout
-                    </li>
-                </ul>
-            ) : (
-                <Link className="link" to="login">
-                    Login
+        <div className={s.wrapper}>
+            <div className={s.logo}>
+                <Link className={s.link} to="/">
+                    LemyTalk
                 </Link>
-            )}
+            </div>
+            <div className={s.auth}>
+                {user ? (
+                    <div className="listItem" onClick={logout}>
+                        Logout
+                    </div>
+                ) : (
+                    <Link className={s.link} to="login">
+                        Login
+                    </Link>
+                )}
+            </div>
         </div>
     );
 };

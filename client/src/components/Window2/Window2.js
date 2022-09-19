@@ -1,25 +1,21 @@
+import s from "./Window2.module.css";
+import noise from "../../assets/img/he.jpg";
 import { Link } from "react-router-dom";
-import s from "./Header.module.css";
 
-const Header = ({ user }) => {
+const Window2 = (user) => {
     const logout = () => {
         window.open("http://localhost:5000/auth/logout", "_self");
     };
     return (
         <div className={s.wrapper}>
-            <div className={s.logo}>
-                <Link className={s.link} to="/">
-                    LemyTalk
-                </Link>
-            </div>
             <div className={s.auth}>
-                {user.isAuth === true ? (
-                    <div className={s.login} onClick={logout}>
+                {user ? (
+                    <div className="listItem" onClick={logout}>
                         Logout
                     </div>
                 ) : (
                     <Link className={s.link} to="login">
-                        <div className={s.login}>Login</div>
+                        Login
                     </Link>
                 )}
             </div>
@@ -27,4 +23,4 @@ const Header = ({ user }) => {
     );
 };
 
-export default Header;
+export default Window2;

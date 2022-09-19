@@ -1,3 +1,7 @@
 .windows{
+    /*margin-top: 50px;*/
     display: flex;
+}
+.wrapper{
+    margin-top: 50px;
 }

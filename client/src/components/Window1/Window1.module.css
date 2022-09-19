@@ -1,9 +1,11 @@
 .wrapper{
 /*position: absolute;*/
 /*    width: 30%;*/
-    margin: 5px;
-    padding: 18%;
-
+/*    padding: 18%;*/
+    width: 33%;
+    margin: 0 2px;
+    border-radius: 5px;
+    /*height: 30%;*/
     background-color: darkgray;
     /*margin: 20px;*/
 }

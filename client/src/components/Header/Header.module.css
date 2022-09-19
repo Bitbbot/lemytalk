@@ -1,13 +1,46 @@
 .wrapper {
     display: flex;
     flex-direction: row;
-    font-size: large;
     justify-content: space-between;
     font-family: "Rubik", sans-serif;
+    position: fixed;
+    top:0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    background-color: white;
+    /*margin-bottom: 50px;*/
 }
 .link{
     text-decoration: none;
 }
-.link:visited{
-    color: blue;
+/*.logo.link:visited{*/
+/*    color: blueviolet;*/
+/*}*/
+/*.auth.link:visited{*/
+/*    color: white;*/
+/*}*/
+.logo{
+    color: blueviolet;
+    font-size: 32px;
+    padding-left: 10px;
+    font-weight: bold;
+}
+.logo .link:visited{
+    color: blueviolet;
+}
+.login .link:visited{
+    color: white;
+}
+.login{
+    font-size: 18px;
+    color: white;
+    border-radius: 5px;
+padding: 5px 15px;
+    margin-right: 20px;
+    background-color: blueviolet;
+}
+.login:hover{
+    cursor: pointer;
 }

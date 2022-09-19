@@ -4,56 +4,67 @@ import {
     Route,
     Navigate,
 } from "react-router-dom";
-import { react, useEffect, useState } from "react";
+import { react, useContext, useEffect, useState } from "react";
 import Header from "./components/Header/Header";
 import User from "./pages/User/User";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
+import "./App.css";
+import { Context } from "./index";
+import { observer } from "mobx-react-lite";
+import getUser from "./utils/getUser";
 
-function App() {
-    const [user, setUser] = useState(null);
-
+const App = observer(() => {
+    const { user } = useContext(Context);
     useEffect(() => {
-        const getUser = () => {
-            fetch("http://localhost:5000/auth/login/success", {
-                method: "GET",
-                credentials: "include",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                    "Access-Control-Allow-Credentials": true,
-                },
-            })
-                .then((response) => {
-                    if (response.status === 200) return response.json();
-                    throw new Error("authentication has been failed!");
-                })
-                .then((resObject) => {
-                    setUser(resObject.user);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        };
-        getUser();
+        getUser().then((e) => {
+            user.setIsAuth(e);
+        });
     }, []);
     return (
-        <div className="App">
-            <Router>
-                <div className="App">
-                    <Header user={user} />
-                    <Routes>
-                        <Route
-                            exact
-                            path="/login"
-                            element={user ? <Navigate to="/" /> : <Login />}
-                        />
-                        <Route path="/" element={user ? <Home /> : <Home />} />
-                    </Routes>
-                </div>
-            </Router>
-        </div>
+        <Router>
+            <div className="App">
+                <Header user={user} />
+                <Routes>
+                    <Route
+                        exact
+                        path="/login"
+                        element={
+                            user.isAuth === true ? (
+                                <Navigate to="/" />
+                            ) : (
+                                <Login />
+                            )
+                        }
+                    />
+                    <Route
+                        path="/"
+                        element={user.isAuth === true ? <Home /> : <Home />}
+                    />
+                </Routes>
+            </div>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+            <p>h</p>
+        </Router>
     );
-}
+});
 
 export default App;

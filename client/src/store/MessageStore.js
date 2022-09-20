@@ -35,6 +35,14 @@ export default class MessageStore {
                 id: 16,
             },
             { user: "you", text: "Cool", id: 17 },
+            {
+                user: "you",
+                text:
+                    "Oh, today I had a dream. It was awesome " +
+                    "and I'm gonna write script " +
+                    "and film a movie based on my dream ",
+                id: 18,
+            },
         ];
         makeAutoObservable(this);
     }

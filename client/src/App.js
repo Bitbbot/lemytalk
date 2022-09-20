@@ -15,55 +15,41 @@ import { observer } from "mobx-react-lite";
 import getUser from "./utils/getUser";
 
 const App = observer(() => {
+    const [isModalActive, setIsModalActive] = useState(false);
     const { user } = useContext(Context);
-    console.log("grg");
     useEffect(() => {
         getUser().then((e) => {
             user.setIsAuth(e);
+            console.log(e);
         });
     }, []);
     return (
         <Router>
             <div className="App">
-                <Header user={user} />
+                <Header setIsModelActive={setIsModalActive} />
                 <Routes>
-                    <Route
-                        exact
-                        path="/login"
-                        element={
-                            user.isAuth === true ? (
-                                <Navigate to="/" />
-                            ) : (
-                                <Login />
-                            )
-                        }
-                    />
+                    {/*<Route*/}
+                    {/*    exact*/}
+                    {/*    path="/login"*/}
+                    {/*    element={*/}
+                    {/*        user.isAuth === true ? (*/}
+                    {/*            <Navigate to="/" />*/}
+                    {/*        ) : (*/}
+                    {/*            <Login />*/}
+                    {/*        )*/}
+                    {/*    }*/}
+                    {/*/>*/}
                     <Route
                         path="/"
+                        // element={<Home />}
                         element={user.isAuth === true ? <Home /> : <Home />}
                     />
                 </Routes>
+                <Login
+                    isModelActive={isModalActive}
+                    setIsModelActive={setIsModalActive}
+                />
             </div>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
-            <p>h</p>
         </Router>
     );
 });

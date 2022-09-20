@@ -1,34 +1,59 @@
-import Google from "../../assets/img/google.png";
 // import Facebook from "../img/facebook.png";
 // import Github from "../img/github.png";
+import googleAuth from "../../utils/googleAuth";
+import Google from "../../assets/img/google.png";
+import Close from "../../assets/img/close.png";
+import s from "./Login.module.css";
 
-const Login = () => {
-    const google = () => {
-        window.open("http://localhost:5000/auth/google", "_self");
-    };
-
-    return (
-        <div className="login">
-            <h1 className="loginTitle">Choose a Login Method</h1>
-            <div className="wrapper">
-                <div className="left">
-                    <div className="loginButton google" onClick={google}>
-                        <img src={Google} alt="" className="icon" />
-                        Google
+const Login = (props) => {
+    // console.log(props.isModelActive);
+    if (props.isModelActive === true) {
+        return (
+            <div className={s.wrapper}>
+                <div className={s.content}>
+                    <div className={s.close_wrapper}>
+                        <img
+                            src={Close}
+                            width="20px"
+                            onClick={() => {
+                                props.setIsModelActive(false);
+                            }}
+                            className={s.close_img}
+                        />
+                    </div>
+                    <div className={s.content_wrapper}>
+                        <div className={s.title}>Choose a Login Method</div>
+                        <div>
+                            <div
+                                className={s.google}
+                                onClick={() => {
+                                    googleAuth();
+                                }}
+                            >
+                                {/*<img src={Google} width="20px" />*/}
+                                Google
+                            </div>
+                        </div>
+                        <div className={s.policies}>
+                            <div>Accepting Policy</div>
+                            <div>Agreement</div>
+                        </div>
                     </div>
                 </div>
-                <div className="center">
-                    <div className="line" />
-                    <div className="or">OR</div>
-                </div>
-                <div className="right">
-                    <input type="text" placeholder="Username" />
-                    <input type="text" placeholder="Password" />
-                    <button className="submit">Login</button>
-                </div>
+                g{/*<h1 className="s.loginTitle">Choose a Login Method</h1>*/}
+                {/*<div className="s.wrapper">*/}
+                {/*    <div className="s.left">*/}
+                {/*        <div className="s.loginButton google" onClick={googleAuth}>*/}
+                {/*            <img src={Google} alt="" className="icon" />*/}
+                {/*            Google*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
-        </div>
-    );
+        );
+    } else {
+        return <div></div>;
+    }
 };
 
 export default Login;

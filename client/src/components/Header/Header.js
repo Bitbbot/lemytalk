@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import s from "./Header.module.css";
 import logout from "../../utils/logout";
-const Header = ({ user }) => {
+import { useContext } from "react";
+import { Context } from "../../index";
+const Header = (props) => {
+    const { user } = useContext(Context);
+
     return (
         <div className={s.wrapper}>
             <div className={s.logo}>
                 <Link className={s.link} to="/">
                     LemyTalk
-                    {/*<img src={logo} className={s.logoimg} />*/}
                 </Link>
             </div>
             <div className={s.auth}>
@@ -16,9 +19,14 @@ const Header = ({ user }) => {
                         Logout
                     </div>
                 ) : (
-                    <Link className={s.link} to="login">
-                        <div className={s.login}>Login</div>
-                    </Link>
+                    <div
+                        className={s.login}
+                        onClick={() => {
+                            props.setIsModelActive(true);
+                        }}
+                    >
+                        Login
+                    </div>
                 )}
             </div>
         </div>

@@ -7,6 +7,7 @@ const Buttons = () => {
         <div className={s.wrapper}>
             <LanguageButtons />
             <ControlButtons />
+            <div className={s.void}></div>
         </div>
     );
 };

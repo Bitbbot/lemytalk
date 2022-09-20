@@ -1,19 +1,25 @@
 .wrapper{
-    /*position: absolute;*/
-    /*    width: 30%;*/
-    /*    padding: 18%;*/
-    width: 33%;
-
-    padding: 300px 0;
-    margin: 0 2px 0 0 ;
-    border-radius: 5px;
-    /*height: 30%;*/
-    background-color: darkgray;
-    /*margin: 20px;*/
+    display: flex;
+    flex-direction: column;
+    width: 38%;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid darkgrey;
+    border-top: 0;
+    border-left: 0;
+    padding: 10px 40px;
 }
-.o1{
-
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
 }
-.o2{
-
+.title{
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+li{
+    padding-left: 0;
+    margin-left: 0;
 }

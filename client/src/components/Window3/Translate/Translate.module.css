@@ -1,0 +1,38 @@
+.title{
+    text-align: center;
+    background-color: blueviolet;
+    color: white;
+    font-size: 18px;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    /*font-weight: bold;*/
+}
+textarea{
+    /*max-lines: 4;*/
+    resize:none;
+    outline:none;
+    width: 100%;
+    border: none;
+    height: 90px;
+    overflow: hidden;
+    /*align-self: center;*/
+    /*height: 120px;*/
+    /*padding: 3px 10px;*/
+}
+.fields_wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.language{
+    padding-left: 5px;
+    background-color: #d2d2d2;
+}
+.wrapper{
+    margin-bottom: 20px;
+}
+.input_wrapper{
+    align-self: center;
+    width: 90%;
+    border: 1px solid darkgray;
+    margin-bottom: 10px;
+}

@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
 import s from "./Header.module.css";
-
+import logout from "../../utils/logout";
 const Header = ({ user }) => {
-    const logout = () => {
-        window.open("http://localhost:5000/auth/logout", "_self");
-    };
     return (
         <div className={s.wrapper}>
             <div className={s.logo}>
                 <Link className={s.link} to="/">
                     LemyTalk
+                    {/*<img src={logo} className={s.logoimg} />*/}
                 </Link>
             </div>
             <div className={s.auth}>

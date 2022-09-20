@@ -1,24 +1,20 @@
 import s from "./Window2.module.css";
-import noise from "../../assets/img/he.jpg";
-import { Link } from "react-router-dom";
 
 const Window2 = (user) => {
-    const logout = () => {
-        window.open("http://localhost:5000/auth/logout", "_self");
-    };
     return (
         <div className={s.wrapper}>
-            <div className={s.auth}>
-                {user ? (
-                    <div className="listItem" onClick={logout}>
-                        Logout
-                    </div>
-                ) : (
-                    <Link className={s.link} to="login">
-                        Login
-                    </Link>
-                )}
+            <div className={s.title}>
+                LemyTalk helps people find a speaking partner
             </div>
+            <div>How to start: </div>
+            <ul>
+                <li>- Login</li>
+                <li>
+                    - Choose the language you know and the language you learn
+                </li>
+                <li>- Start speaking</li>
+            </ul>
+            {/*<img src={picture} />*/}
         </div>
     );
 };

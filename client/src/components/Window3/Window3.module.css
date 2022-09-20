@@ -1,0 +1,10 @@
+.wrapper{
+    /*font-weight: bolder;*/
+    /*font-family: "Times New Roman";*/
+    width: 24%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /*background-color: lightgoldenrodyellow;*/
+    /*padding-top: 200px;*/
+}

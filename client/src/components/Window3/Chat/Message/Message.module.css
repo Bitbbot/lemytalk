@@ -1,0 +1,35 @@
+.wrapper{
+    color: black;
+    padding: 0 5px;
+    width: 100%;
+}
+
+.you{
+    display: flex;
+    flex-direction: column;
+    margin: 2px 0;
+}
+.stranger{
+    display: flex;
+    flex-direction: column;
+    margin: 2px 0;
+}
+.user{
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+}
+.you .text{
+    align-self: flex-end;
+    padding: 3px 10px;
+    background-color: #bbbdff;
+    border-radius: 10px;
+    max-width: 80%;
+}
+.stranger .text{
+    align-self: flex-start;
+    padding: 3px 10px;
+    background-color: #dadada;
+    border-radius: 10px;
+    max-width: 80%;
+}

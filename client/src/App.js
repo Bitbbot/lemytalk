@@ -16,6 +16,7 @@ import getUser from "./utils/getUser";
 
 const App = observer(() => {
     const { user } = useContext(Context);
+    console.log("grg");
     useEffect(() => {
         getUser().then((e) => {
             user.setIsAuth(e);

@@ -76,3 +76,6 @@ select {
         scroll-behavior: auto !important;
     }
 }
+.App{
+    font-family: "Rubik", sans-serif;
+}

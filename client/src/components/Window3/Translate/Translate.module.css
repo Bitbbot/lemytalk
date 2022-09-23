@@ -18,6 +18,8 @@ textarea{
     /*align-self: center;*/
     /*height: 120px;*/
     /*padding: 3px 10px;*/
+    padding-left: 10px;
+
 }
 .fields_wrapper{
     display: flex;
@@ -25,14 +27,64 @@ textarea{
 }
 .language{
     padding-left: 5px;
-    background-color: #d2d2d2;
+    background-color: #c5c5c5;
 }
 .wrapper{
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
 }
 .input_wrapper{
     align-self: center;
     width: 90%;
-    border: 1px solid darkgray;
+    border: 1px solid #c5c5c5;
     margin-bottom: 10px;
+}
+@media screen and (max-width: 1800px) {
+}
+@media screen and (max-width: 1700px) {
+}
+@media screen and (max-width: 1600px) {
+    textarea{
+        height: 80px;
+    }
+}
+@media screen and (max-width: 1500px) {
+    textarea{
+        height: 75px;
+    }
+}
+@media screen and (max-width: 1400px) {
+    textarea{
+        height: 70px;
+    }
+}
+@media screen and (max-width: 1300px) {
+    .title{
+        display: none;
+    }
+}
+@media screen and (max-width: 1200px) {
+}
+@media screen and (max-width: 1100px) {
+
+}
+@media screen and (max-width: 1000px) {
+
+}
+@media screen and (max-width: 900px) {
+
+}
+@media screen and (max-width: 800px) {
+
+}
+@media screen and (max-width: 700px) {
+
+}
+@media screen and (max-width: 600px) {
+
+}
+@media screen and (max-width: 500px) {
+
+}
+@media screen and (max-width: 400px) {
+
 }

@@ -4,7 +4,7 @@ import {
     Route,
     Navigate,
 } from "react-router-dom";
-import { react, useContext, useEffect, useState } from "react";
+import { react, useContext, useEffect, useRef, useState } from "react";
 import Header from "./components/Header/Header";
 import User from "./pages/User/User";
 import Login from "./pages/Login/Login";
@@ -17,33 +17,34 @@ import getUser from "./utils/getUser";
 const App = observer(() => {
     const [isModalActive, setIsModalActive] = useState(false);
     const { user } = useContext(Context);
+    const width = useRef(null);
+
+    console.log("render");
+    // useEffect(() => {
+    //     user.setWidth(width.current ? width.current.offsetWidth : 0);
+    // }, []);
+    useEffect(() => {
+        user.setWidth(width.current ? width.current.offsetWidth : 0);
+        window.addEventListener("resize", () => {
+            user.setWidth(width.current ? width.current.offsetWidth : 0);
+        });
+        return () => {
+            window.removeEventListener("resize", () => {
+                user.setWidth(width.current ? width.current.offsetWidth : 0);
+            });
+        };
+    }, []);
     useEffect(() => {
         getUser().then((e) => {
             user.setIsAuth(e);
-            console.log(e);
         });
     }, []);
     return (
         <Router>
-            <div className="App">
+            <div className="App" ref={width}>
                 <Header setIsModelActive={setIsModalActive} />
                 <Routes>
-                    {/*<Route*/}
-                    {/*    exact*/}
-                    {/*    path="/login"*/}
-                    {/*    element={*/}
-                    {/*        user.isAuth === true ? (*/}
-                    {/*            <Navigate to="/" />*/}
-                    {/*        ) : (*/}
-                    {/*            <Login />*/}
-                    {/*        )*/}
-                    {/*    }*/}
-                    {/*/>*/}
-                    <Route
-                        path="/"
-                        // element={<Home />}
-                        element={user.isAuth === true ? <Home /> : <Home />}
-                    />
+                    <Route path="/" element={<Home />} />
                 </Routes>
                 <Login
                     isModelActive={isModalActive}

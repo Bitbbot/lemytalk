@@ -4,6 +4,7 @@ export default class UserStore {
     constructor() {
         this._isAuth = false;
         this._user = {};
+        this._width = 0;
         this._isTalking = false;
         this._nativeLanguage = "Russian";
         this._studiedLanguage = "English";
@@ -12,6 +13,9 @@ export default class UserStore {
     }
     setIsAuth(bool) {
         this._isAuth = bool;
+    }
+    setWidth(num) {
+        this._width = num;
     }
     setUser(user) {
         this._user = user;
@@ -27,6 +31,9 @@ export default class UserStore {
     }
     setLevel(level) {
         this._level = level;
+    }
+    get width() {
+        return this._width;
     }
     get level() {
         return this._level;

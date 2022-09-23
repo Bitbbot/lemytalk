@@ -3,9 +3,10 @@ import s from "./Header.module.css";
 import logout from "../../utils/logout";
 import { useContext } from "react";
 import { Context } from "../../index";
-const Header = (props) => {
-    const { user } = useContext(Context);
+import { observer } from "mobx-react-lite";
 
+const Header = observer((props) => {
+    const { user } = useContext(Context);
     return (
         <div className={s.wrapper}>
             <div className={s.logo}>
@@ -31,6 +32,6 @@ const Header = (props) => {
             </div>
         </div>
     );
-};
+});
 
 export default Header;

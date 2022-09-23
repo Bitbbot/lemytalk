@@ -10,9 +10,14 @@ const Home = () => {
             <div className={s.windows}>
                 <Window1 />
                 <Window2 />
+                <div className={s.buttons_mobile}>
+                    <Buttons />
+                </div>
                 <Window3 />
             </div>
-            <Buttons />
+            <div className={s.buttons_desktop}>
+                <Buttons />
+            </div>
         </div>
     );
 };

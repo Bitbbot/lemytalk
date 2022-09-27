@@ -1,0 +1,38 @@
+.wrapper{
+    position: relative;
+    bottom: 60px;
+    left: 0;
+    display: none;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.button{
+    /*background-color: #5b5daf;*/
+    width: 50px;
+    border-radius: 25px;
+    margin: 0 5px;
+    padding: 10px;
+}
+.button img{
+    width:100%;
+}
+.options{
+    background-color: #a1a1a1;
+}
+.report{
+    background-color: #d55454;
+}
+.start{
+    background-color: #51a951;
+}
+.stop{
+    background-color: rgba(218, 187, 93, 0.91);
+}
+@media screen and (max-width: 767px) {
+    .wrapper{
+        display: block;
+    }
+}

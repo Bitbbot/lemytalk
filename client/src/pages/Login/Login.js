@@ -7,7 +7,7 @@ import s from "./Login.module.css";
 
 const Login = (props) => {
     // console.log(props.isModelActive);
-    if (props.isModelActive === true) {
+    if (props.isModalActive === true) {
         return (
             <div className={s.wrapper}>
                 <div className={s.content}>
@@ -16,7 +16,7 @@ const Login = (props) => {
                             src={Close}
                             width="20px"
                             onClick={() => {
-                                props.setIsModelActive(false);
+                                props.setIsModalActive(false);
                             }}
                             className={s.close_img}
                         />

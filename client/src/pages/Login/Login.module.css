@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 .content{
     padding: 20px;
@@ -44,6 +45,7 @@
     padding: 15px;
     border-radius: 15px;
     text-align: center;
+    cursor: pointer;
 }
 
 .policies{

@@ -6,13 +6,13 @@ const Window2 = (user) => {
             <div className={s.title}>
                 LemyTalk helps people find a speaking partner
             </div>
-            <div>How to start: </div>
+            {/*<div>How to start: </div>*/}
             <ul>
-                <li>- Login</li>
-                <li>
-                    - Choose the language you know and the language you learn
-                </li>
-                <li>- Start speaking</li>
+                {/*<li>- Login</li>*/}
+                {/*<li>*/}
+                {/*    - Choose the language you know and the language you learn*/}
+                {/*</li>*/}
+                {/*<li>- Start speaking</li>*/}
             </ul>
             {/*<img src={picture} />*/}
         </div>

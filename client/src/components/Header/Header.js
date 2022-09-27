@@ -23,7 +23,7 @@ const Header = observer((props) => {
                     <div
                         className={s.login}
                         onClick={() => {
-                            props.setIsModelActive(true);
+                            props.setIsModalActive(true);
                         }}
                     >
                         Login

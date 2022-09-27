@@ -19,13 +19,13 @@
     cursor: pointer;
 }
 .start{
-    background-color: #009400;
+    background-color: #51a951;
 }
 .stop{
-    background-color: rgba(208, 170, 0, 0.91);
+    background-color: rgba(218, 187, 93, 0.91);
 }
 .complain{
-    background-color: #b70000;
+    background-color: #d55454;
 }
 @media screen and (max-width: 1200px) {
     .button{
@@ -36,5 +36,18 @@
     .button{
         font-size: 18px;
         padding: 5px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .wrapper{
+        width: 100%;
+        flex-direction: column;
+        /*margin-left: 20px;*/
+        /*margin-right: 20px;t: 20px;*/
+        /*margin-right: 20px;*/
+    }
+    .button{
+        width: 100%;
+        margin-top: 10px;
     }
 }

@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import { react, useContext, useEffect, useRef, useState } from "react";
 import Header from "./components/Header/Header";
-import User from "./pages/User/User";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import "./App.css";
@@ -14,14 +13,16 @@ import { Context } from "./index";
 import { observer } from "mobx-react-lite";
 import getUser from "./utils/getUser";
 import LanguageButtons from "./components/Buttons/LanguageButtons/LanguageButtons";
+import Report from "./components/Report/Report";
 
 const App = observer(() => {
     const [isModalActive, setIsModalActive] = useState(false);
     const [isSettingsActive, setIsSettingsActive] = useState(false);
+    const [isReportActive, setIsReportActive] = useState(false);
     const { user } = useContext(Context);
     const width = useRef(null);
 
-    console.log("render");
+    // console.log("render");
 
     useEffect(() => {
         user.setWidth(width.current ? width.current.offsetWidth : 0);
@@ -42,22 +43,30 @@ const App = observer(() => {
     return (
         <Router>
             <div className="App" ref={width}>
-                <Header setIsModelActive={setIsModalActive} />
+                <Header setIsModalActive={setIsModalActive} />
                 <Routes>
                     <Route
                         path="/"
                         element={
-                            <Home setIsSettingsActive={setIsSettingsActive} />
+                            <Home
+                                setIsSettingsActive={setIsSettingsActive}
+                                setIsReportActive={setIsReportActive}
+                                setIsModalActive={setIsModalActive}
+                            />
                         }
                     />
                 </Routes>
                 <Login
-                    isModelActive={isModalActive}
-                    setIsModelActive={setIsModalActive}
+                    isModalActive={isModalActive}
+                    setIsModalActive={setIsModalActive}
                 />
                 <LanguageButtons
                     isSettingsActive={isSettingsActive}
                     setIsSettingsActive={setIsSettingsActive}
+                />
+                <Report
+                    isReportActive={isReportActive}
+                    setIsReportActive={setIsReportActive}
                 />
             </div>
         </Router>

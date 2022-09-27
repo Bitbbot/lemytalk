@@ -4,7 +4,6 @@
 }
 .void{
     width: 24%;
-
 }
 .options_wrapper{
     width: 38%;
@@ -15,7 +14,7 @@
     margin-left: 20px;
     padding: 10px;
     width: 30%;
-    background-color: gray;
+    background-color: #a1a1a1;
     border-radius: 5px;
     height: 60px;
     display: flex;
@@ -44,5 +43,24 @@
     }
     .wrapper{
         margin-top: 10px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .void{
+        width: 0;
+    }
+    .options_wrapper{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        /*height: 25%;*/
+    }
+    .wrapper{
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    .options{
+        margin-left: 0;
+        width: 100%;
     }
 }

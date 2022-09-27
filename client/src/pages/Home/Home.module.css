@@ -12,3 +12,74 @@
 .buttons_desktop{
 
 }
+.mobile_wrapper{
+    display: flex;
+    width: 76%;
+}
+.windows_wrapper{
+    display: flex;
+}
+@media screen and (max-width: 767px) {
+    .buttons_mobile{
+        display: block;
+    }
+    .windows{
+        display: block;
+    }
+    .buttons_desktop{
+        display: none;
+    }
+    .mobile_wrapper{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .windows_wrapper{
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 720px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .windows_wrapper{
+        height: 620px;
+    }
+}
+@media screen and (max-width: 650px) {
+    .windows_wrapper{
+        height: 580px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .windows_wrapper{
+        height: 520px;
+    }
+}
+@media screen and (max-width: 550px) {
+    .windows_wrapper{
+        height: 470px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .windows_wrapper{
+        height: 420px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .windows_wrapper{
+        height: 370px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .windows_wrapper{
+        height: 320px;
+    }
+}
+
+
+
+
+
+
+

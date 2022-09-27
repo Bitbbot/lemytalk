@@ -13,16 +13,16 @@ import "./App.css";
 import { Context } from "./index";
 import { observer } from "mobx-react-lite";
 import getUser from "./utils/getUser";
+import LanguageButtons from "./components/Buttons/LanguageButtons/LanguageButtons";
 
 const App = observer(() => {
     const [isModalActive, setIsModalActive] = useState(false);
+    const [isSettingsActive, setIsSettingsActive] = useState(false);
     const { user } = useContext(Context);
     const width = useRef(null);
 
     console.log("render");
-    // useEffect(() => {
-    //     user.setWidth(width.current ? width.current.offsetWidth : 0);
-    // }, []);
+
     useEffect(() => {
         user.setWidth(width.current ? width.current.offsetWidth : 0);
         window.addEventListener("resize", () => {
@@ -44,11 +44,20 @@ const App = observer(() => {
             <div className="App" ref={width}>
                 <Header setIsModelActive={setIsModalActive} />
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route
+                        path="/"
+                        element={
+                            <Home setIsSettingsActive={setIsSettingsActive} />
+                        }
+                    />
                 </Routes>
                 <Login
                     isModelActive={isModalActive}
                     setIsModelActive={setIsModalActive}
+                />
+                <LanguageButtons
+                    isSettingsActive={isSettingsActive}
+                    setIsSettingsActive={setIsSettingsActive}
                 />
             </div>
         </Router>

@@ -38,9 +38,13 @@
     width: 42px;
     border-bottom: 1px solid #c5c5c5;
     border-right: 1px solid #c5c5c5;
-
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
-
+.messages_wr{
+    height: 100%;
+}
 .messages::-webkit-scrollbar {
     width: 15px;
 }
@@ -82,30 +86,80 @@
         height: 180px;
     }
 }
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1317px) {
     .title{
         display: none;
     }
     .messages{
-        /*height: 50%;*/
+        height: 92%;
+    }
+    .wrapper{
+        height: 462px;
+        position: relative;
+    }
+    .input{
+        height: 8%;
     }
 }
 @media screen and (max-width: 1200px) {
-
+    .wrapper{
+        height: 420px;
+    }
+    .input_img{
+        width: 38px;
+    }
+    .messages{
+        height: 91.5%;
+    }
+    .input{
+        height: 8.5%;
+    }
 }
 @media screen and (max-width: 1100px) {
-
+    .wrapper{
+        height: 380px;
+    }
+    .messages{
+        height: 90.5%;
+    }
+    .input{
+        height: 9.5%;
+    }
 }
 @media screen and (max-width: 1000px) {
-
+    .wrapper{
+        height: 340px;
+    }
+    .messages{
+        height: 90%;
+    }
+    .input{
+        height: 10%;
+    }
 }
 @media screen and (max-width: 900px) {
-
+    .wrapper{
+        height: 302px;
+    }
+    .messages{
+        height: 89%;
+    }
+    .input{
+        height: 11%;
+    }
 }
 @media screen and (max-width: 800px) {
-
+    .wrapper{
+        height: 265px;
+    }
+    .messages{
+        height: 88%;
+    }
+    .input{
+        height: 12%;
+    }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 767px) {
 
 }
 @media screen and (max-width: 600px) {

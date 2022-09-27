@@ -57,26 +57,65 @@ textarea{
         height: 70px;
     }
 }
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1317px) {
     .title{
         display: none;
     }
+    .fields_wrapper{
+        padding-top: 10px;
+        height: 462px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+    textarea{
+        height: 185px;
+    }
+    .input_wrapper_bottom{
+        margin-bottom: 0;
+    }
 }
 @media screen and (max-width: 1200px) {
+    .fields_wrapper{
+        height: 420px;
+    }
+    textarea{
+        height: 165px;
+    }
 }
 @media screen and (max-width: 1100px) {
-
+    .fields_wrapper{
+        height: 380px;
+    }
+    textarea{
+        height: 145px;
+    }
 }
 @media screen and (max-width: 1000px) {
-
+    .fields_wrapper{
+        height: 340px;
+    }
+    textarea{
+        height: 125px;
+    }
 }
 @media screen and (max-width: 900px) {
-
+    .fields_wrapper{
+        height: 302px;
+    }
+    textarea{
+        height: 105px;
+    }
 }
 @media screen and (max-width: 800px) {
-
+    .fields_wrapper{
+        height: 265px;
+    }
+    textarea{
+        height: 88px;
+    }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 767px) {
 
 }
 @media screen and (max-width: 600px) {

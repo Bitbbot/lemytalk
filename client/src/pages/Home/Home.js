@@ -4,7 +4,7 @@ import Window3 from "../../components/Window3/Window3";
 import Buttons from "../../components/Buttons/Buttons";
 import s from "./Home.module.css";
 
-const Home = () => {
+const Home = (props) => {
     return (
         <div className={s.wrapper}>
             <div className={s.windows}>
@@ -16,7 +16,7 @@ const Home = () => {
                 <Window3 />
             </div>
             <div className={s.buttons_desktop}>
-                <Buttons />
+                <Buttons setIsSettingsActive={props.setIsSettingsActive} />
             </div>
         </div>
     );

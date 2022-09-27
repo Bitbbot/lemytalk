@@ -21,11 +21,5 @@ export default {
         "Turkish",
         "Other",
     ],
-    levels: [
-        "Beginner",
-        "Pre Intermediate",
-        "Intermediate",
-        "Upper Intermediate",
-        "Advanced",
-    ],
+    levels: ["A1", "A2", "B1", "B2", "C1"],
 };

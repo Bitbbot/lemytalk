@@ -1,7 +1,48 @@
 .wrapper{
     display: flex;
+    margin-top: 20px;
 }
 .void{
     width: 24%;
 
+}
+.options_wrapper{
+    width: 38%;
+    display: flex;
+    justify-content: flex-start;
+}
+.options{
+    margin-left: 20px;
+    padding: 10px;
+    width: 30%;
+    background-color: gray;
+    border-radius: 5px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+.options_img{
+    width: 40px;
+    /*background-color: gray;*/
+}
+@media screen and (max-width: 1200px) {
+    .options{
+        height: 50px;
+    }
+    .options_img{
+        width: 30px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .options{
+        height: 40px;
+        margin-left: 10px;
+    }
+    .options_img{
+        width: 20px;
+    }
+    .wrapper{
+        margin-top: 10px;
+    }
 }

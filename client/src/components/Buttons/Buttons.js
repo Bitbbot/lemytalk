@@ -1,11 +1,21 @@
 import s from "./Buttons.module.css";
 import LanguageButtons from "./LanguageButtons/LanguageButtons";
 import ControlButtons from "./ControlButtons/ControlButtons";
+import options from "../../assets/img/options.png";
 
-const Buttons = () => {
+const Buttons = (props) => {
     return (
         <div className={s.wrapper}>
-            <LanguageButtons />
+            <div className={s.options_wrapper}>
+                <div
+                    className={s.options}
+                    onClick={() => {
+                        props.setIsSettingsActive(true);
+                    }}
+                >
+                    <img src={options} className={s.options_img} />
+                </div>
+            </div>
             <ControlButtons />
             <div className={s.void}></div>
         </div>

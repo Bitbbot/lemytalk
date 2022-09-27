@@ -1,6 +1,7 @@
 import s from "./Translate.module.css";
 import { useContext } from "react";
 import { Context } from "../../../index";
+import classNames from "classnames";
 
 const Translate = () => {
     const { user } = useContext(Context);
@@ -15,7 +16,12 @@ const Translate = () => {
                     ></textarea>
                     <div className={s.language}>{user.nativeLanguage}</div>
                 </div>
-                <div className={s.input_wrapper}>
+                <div
+                    className={classNames([
+                        s.input_wrapper,
+                        s.input_wrapper_bottom,
+                    ])}
+                >
                     <textarea maxLength="200"></textarea>
                     <div className={s.language}>{user.studiedLanguage}</div>
                 </div>

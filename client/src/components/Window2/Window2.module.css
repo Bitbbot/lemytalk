@@ -23,3 +23,12 @@ li{
     padding-left: 0;
     margin-left: 0;
 }
+@media screen and (max-width: 900px) {
+    .title{
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+    ul{
+        font-size: 15px;
+    }
+}

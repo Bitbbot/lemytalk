@@ -1,15 +1,13 @@
 import s from "./Report.module.css";
-import classNames from "classnames";
 import Close from "../../assets/img/close.png";
 import { useState } from "react";
 
 const Report = (props) => {
     const handleChange = (reason) => {
         setReason(reason);
-        // props.setIsReportActive(false);
     };
     const handleReport = () => {
-        if (reason != "") {
+        if (reason !== "") {
             console.log(reason);
             props.setIsReportActive(false);
         }

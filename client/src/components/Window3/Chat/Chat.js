@@ -17,7 +17,6 @@ const Chat = () => {
     return (
         <div className={s.wrapper}>
             <div className={s.title}>Chat</div>
-            {/*<div className={s.messages_wr}>*/}
             <div className={s.messages}>
                 <div className={s.messages_wrapper}>
                     {messages?.messages?.map((message) => (
@@ -26,7 +25,6 @@ const Chat = () => {
                 </div>
                 <div ref={bottomRef}></div>
             </div>
-            {/*</div>*/}
             <div className={s.input}>
                 <input
                     type="text"

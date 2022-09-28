@@ -11,7 +11,6 @@ const ControlButtons = observer((props) => {
                 className={`${s.button} ${s.start}`}
                 onClick={() => {
                     if (user.isAuth === true) {
-                        // props.setIsReportActive(true);
                     } else {
                         props.setIsModalActive(true);
                     }
@@ -23,7 +22,6 @@ const ControlButtons = observer((props) => {
                 className={`${s.button} ${s.stop}`}
                 onClick={() => {
                     if (user.isAuth === true) {
-                        // props.setIsReportActive(true);
                     } else {
                         props.setIsModalActive(true);
                     }

@@ -1,5 +1,4 @@
 import s from "./Buttons.module.css";
-import LanguageButtons from "./LanguageButtons/LanguageButtons";
 import ControlButtons from "./ControlButtons/ControlButtons";
 import options from "../../assets/img/options.svg";
 import { useContext } from "react";

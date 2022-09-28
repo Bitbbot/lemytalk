@@ -20,7 +20,6 @@
 .close_wrapper{
     display: flex;
     justify-content: flex-end;
-    /*cursor: pointer;*/
 }
 .close_img{
     cursor: pointer;
@@ -38,16 +37,19 @@
 .google{
     background-color: #df4930;
     color: white;
-    /*font-weight: bold;*/
     font-size: 20px;
-    /*width: 10px;*/
     margin: 0 20px;
     padding: 15px;
     border-radius: 15px;
     text-align: center;
     cursor: pointer;
 }
-
+.google:hover{
+    background-color: #c23c26;
+}
+.google:active{
+    background-color: #ad321e;
+}
 .policies{
     padding-left: 20px;
 }

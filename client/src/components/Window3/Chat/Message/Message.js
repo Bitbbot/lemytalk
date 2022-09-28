@@ -5,7 +5,6 @@ const Message = ({ message }) => {
         <div className={s.wrapper}>
             {message["user"] === "you" ? (
                 <div className={s.you}>
-                    {/*<div className={s.user}>{message.user}</div>*/}
                     <div className={s.text}>{message.text}</div>
                 </div>
             ) : (
@@ -13,7 +12,6 @@ const Message = ({ message }) => {
             )}
             {message["user"] === "stranger" ? (
                 <div className={s.stranger}>
-                    {/*<div className={s.user}>{message.user}</div>*/}
                     <div className={s.text}>{message.text}</div>
                 </div>
             ) : (

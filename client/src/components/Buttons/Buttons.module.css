@@ -21,9 +21,14 @@
     justify-content: center;
     cursor: pointer;
 }
+.options:hover{
+    background-color: #8f8d8d;
+}
+.options:active{
+    background-color: #818080;
+}
 .options_img{
     width: 40px;
-    /*background-color: gray;*/
 }
 @media screen and (max-width: 1200px) {
     .options{
@@ -53,7 +58,6 @@
         width: 100%;
         display: flex;
         justify-content: flex-start;
-        /*height: 25%;*/
     }
     .wrapper{
         flex-direction: column;

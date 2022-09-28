@@ -12,7 +12,6 @@ const Window3 = observer(() => {
     return (
         <div className={s.wrapper}>
             {user.width > 1300 ? (
-                // <div className={s.desktop_wrapper}>
                 <>
                     <Translate />
                     <Chat />

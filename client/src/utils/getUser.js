@@ -13,9 +13,6 @@ export default async () => {
             throw new Error("authentication has been failed!");
         })
         .then((resObject) => {
-            // console.log("efe");
-            // setIsAuth(true);
-            // console.log(resObject["user"]["id"]);
             return true;
         })
         .catch((err) => {

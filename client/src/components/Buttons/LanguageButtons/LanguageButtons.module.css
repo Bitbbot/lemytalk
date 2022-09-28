@@ -24,7 +24,6 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    /*cursor: pointer;*/
 }
 .close_img{
     cursor: pointer;
@@ -40,9 +39,6 @@ select{
     border-radius: 5px;
     padding: 15px;
     outline: none;
-}
-option:active{
-    /*background-color: #4347a4;*/
 }
 .changes{
     margin-top: 20px;

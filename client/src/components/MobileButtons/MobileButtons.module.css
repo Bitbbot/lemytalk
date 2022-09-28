@@ -10,11 +10,11 @@
     justify-content: center;
 }
 .button{
-    /*background-color: #5b5daf;*/
     width: 50px;
     border-radius: 25px;
     margin: 0 5px;
     padding: 10px;
+    cursor: pointer;
 }
 .button img{
     width:100%;
@@ -22,14 +22,26 @@
 .options{
     background-color: #a1a1a1;
 }
+.options:active{
+    background-color: #8f8f8f;
+}
 .report{
     background-color: #d55454;
+}
+.report:active{
+    background-color: #be4343;
 }
 .start{
     background-color: #51a951;
 }
+.start:active{
+    background-color: #489648;
+}
 .stop{
     background-color: rgba(218, 187, 93, 0.91);
+}
+.stop:active{
+    background-color: rgba(208, 167, 60, 0.91);
 }
 @media screen and (max-width: 767px) {
     .wrapper{

@@ -5,8 +5,9 @@ import { useContext } from "react";
 import { Context } from "../../index";
 import { observer } from "mobx-react-lite";
 
-const Header = observer((props) => {
+const Header = observer(() => {
     const { user } = useContext(Context);
+    const { modals } = useContext(Context);
     return (
         <div className={s.wrapper}>
             <div className={s.logo}>
@@ -23,7 +24,7 @@ const Header = observer((props) => {
                     <div
                         className={s.login}
                         onClick={() => {
-                            props.setIsModalActive(true);
+                            modals.setIsLogin(true);
                         }}
                     >
                         Login

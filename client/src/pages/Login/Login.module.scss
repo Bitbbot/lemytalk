@@ -20,9 +20,18 @@
 .close_wrapper{
     display: flex;
     justify-content: flex-end;
-}
-.close_img{
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
     cursor: pointer;
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        z-index: 1;}
 }
 .content_wrapper{
     display: flex;
@@ -43,6 +52,17 @@
     border-radius: 15px;
     text-align: center;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+&:before{
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     display: block;
+     z-index: 1;}
 }
 .google:hover{
     background-color: #c23c26;

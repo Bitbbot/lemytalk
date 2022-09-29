@@ -1,6 +1,6 @@
 import s from "./Window2.module.css";
 
-const Window2 = (user) => {
+const Window2 = () => {
     return (
         <div className={s.wrapper}>
             <div className={s.title}>

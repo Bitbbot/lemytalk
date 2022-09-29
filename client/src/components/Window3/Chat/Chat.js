@@ -1,4 +1,4 @@
-import s from "./Chat.module.css";
+import s from "./Chat.module.scss";
 import { useContext, useEffect, useRef } from "react";
 import { Context } from "../../../index";
 import Message from "./Message/Message";

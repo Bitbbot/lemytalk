@@ -1,4 +1,4 @@
-import s from "./MobileButtons.module.css";
+import s from "./MobileButtons.module.scss";
 import start from "../../assets/img/start.svg";
 import stop from "../../assets/img/stop.svg";
 import report from "../../assets/img/report.svg";
@@ -8,8 +8,9 @@ import { observer } from "mobx-react-lite";
 import { useContext } from "react";
 import { Context } from "../../index";
 
-const MobileButtons = observer((props) => {
+const MobileButtons = observer(() => {
     const { user } = useContext(Context);
+    const { modals } = useContext(Context);
     return (
         <div className={s.wrapper}>
             <div className={s.buttons}>
@@ -17,9 +18,9 @@ const MobileButtons = observer((props) => {
                     className={classNames([s.options, s.button])}
                     onClick={() => {
                         if (user.isAuth === true) {
-                            props.setIsSettingsActive(true);
+                            modals.setIsSettings(true);
                         } else {
-                            props.setIsModalActive(true);
+                            modals.setIsLogin(true);
                         }
                     }}
                 >
@@ -29,9 +30,9 @@ const MobileButtons = observer((props) => {
                     className={classNames([s.report, s.button])}
                     onClick={() => {
                         if (user.isAuth === true) {
-                            props.setIsReportActive(true);
+                            modals.setIsReport(true);
                         } else {
-                            props.setIsModalActive(true);
+                            modals.setIsLogin(true);
                         }
                     }}
                 >
@@ -43,7 +44,7 @@ const MobileButtons = observer((props) => {
                         if (user.isAuth === true) {
                             // props.setIsReportActive(true);
                         } else {
-                            props.setIsModalActive(true);
+                            modals.setIsLogin(true);
                         }
                     }}
                 >
@@ -55,7 +56,7 @@ const MobileButtons = observer((props) => {
                         if (user.isAuth === true) {
                             // props.setIsReportActive(true);
                         } else {
-                            props.setIsModalActive(true);
+                            modals.setIsLogin(true);
                         }
                     }}
                 >

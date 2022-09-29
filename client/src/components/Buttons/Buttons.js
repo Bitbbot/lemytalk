@@ -5,8 +5,9 @@ import { useContext } from "react";
 import { Context } from "../../index";
 import { observer } from "mobx-react-lite";
 
-const Buttons = observer((props) => {
+const Buttons = observer(() => {
     const { user } = useContext(Context);
+    const { modals } = useContext(Context);
     return (
         <div className={s.wrapper}>
             <div className={s.options_wrapper}>
@@ -14,19 +15,16 @@ const Buttons = observer((props) => {
                     className={s.options}
                     onClick={() => {
                         if (user.isAuth === true) {
-                            props.setIsSettingsActive(true);
+                            modals.setIsSettings(true);
                         } else {
-                            props.setIsModalActive(true);
+                            modals.setIsLogin(true);
                         }
                     }}
                 >
                     <img src={options} className={s.options_img} />
                 </div>
             </div>
-            <ControlButtons
-                setIsReportActive={props.setIsReportActive}
-                setIsModalActive={props.setIsModalActive}
-            />
+            <ControlButtons />
             <div className={s.void}></div>
         </div>
     );

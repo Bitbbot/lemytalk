@@ -1,19 +1,22 @@
 import s from "./Report.module.css";
 import Close from "../../assets/img/close.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { observer } from "mobx-react-lite";
+import { Context } from "../../index";
 
-const Report = (props) => {
+const Report = observer(() => {
+    const { modals } = useContext(Context);
     const handleChange = (reason) => {
         setReason(reason);
     };
     const handleReport = () => {
         if (reason !== "") {
             console.log(reason);
-            props.setIsReportActive(false);
+            modals.setIsReport(false);
         }
     };
     const [reason, setReason] = useState("");
-    if (props.isReportActive === true) {
+    if (modals.isReport === true) {
         return (
             <div className={s.wrapper}>
                 <div className={s.report_wrapper}>
@@ -22,7 +25,7 @@ const Report = (props) => {
                             src={Close}
                             width="20px"
                             onClick={() => {
-                                props.setIsReportActive(false);
+                                modals.setIsReport(false);
                             }}
                             className={s.close_img}
                         />
@@ -92,6 +95,6 @@ const Report = (props) => {
             </div>
         );
     } else return <div></div>;
-};
+});
 
 export default Report;

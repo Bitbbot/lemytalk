@@ -16,13 +16,8 @@ import LanguageButtons from "./components/Buttons/LanguageButtons/LanguageButton
 import Report from "./components/Report/Report";
 
 const App = observer(() => {
-    const [isModalActive, setIsModalActive] = useState(false);
-    const [isSettingsActive, setIsSettingsActive] = useState(false);
-    const [isReportActive, setIsReportActive] = useState(false);
     const { user } = useContext(Context);
     const width = useRef(null);
-
-    // console.log("render");
 
     useEffect(() => {
         user.setWidth(width.current ? width.current.offsetWidth : 0);
@@ -43,31 +38,13 @@ const App = observer(() => {
     return (
         <Router>
             <div className="App" ref={width}>
-                <Header setIsModalActive={setIsModalActive} />
+                <Header />
                 <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <Home
-                                setIsSettingsActive={setIsSettingsActive}
-                                setIsReportActive={setIsReportActive}
-                                setIsModalActive={setIsModalActive}
-                            />
-                        }
-                    />
+                    <Route path="/" element={<Home />} />
                 </Routes>
-                <Login
-                    isModalActive={isModalActive}
-                    setIsModalActive={setIsModalActive}
-                />
-                <LanguageButtons
-                    isSettingsActive={isSettingsActive}
-                    setIsSettingsActive={setIsSettingsActive}
-                />
-                <Report
-                    isReportActive={isReportActive}
-                    setIsReportActive={setIsReportActive}
-                />
+                <Login />
+                <LanguageButtons />
+                <Report />
             </div>
         </Router>
     );

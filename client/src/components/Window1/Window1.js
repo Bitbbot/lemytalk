@@ -1,4 +1,4 @@
-import s from "./Window1.module.css";
+import s from "./Window1.module.scss";
 import noise from "../../assets/img/w9.png";
 
 const Window1 = () => {

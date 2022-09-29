@@ -4,8 +4,9 @@ import Window3 from "../../components/Window3/Window3";
 import Buttons from "../../components/Buttons/Buttons";
 import s from "./Home.module.css";
 import MobileButtons from "../../components/MobileButtons/MobileButtons";
+import { observer } from "mobx-react-lite";
 
-const Home = (props) => {
+const Home = observer(() => {
     return (
         <div className={s.wrapper}>
             <div className={s.windows}>
@@ -13,23 +14,15 @@ const Home = (props) => {
                     <div className={s.windows_wrapper}>
                         <Window1 />
                         <Window2 />
-                        <MobileButtons
-                            setIsSettingsActive={props.setIsSettingsActive}
-                            setIsReportActive={props.setIsReportActive}
-                            setIsModalActive={props.setIsModalActive}
-                        />
+                        <MobileButtons />
                     </div>
                 </div>
                 <Window3 />
             </div>
             <div className={s.buttons_desktop}>
-                <Buttons
-                    setIsSettingsActive={props.setIsSettingsActive}
-                    setIsReportActive={props.setIsReportActive}
-                    setIsModalActive={props.setIsModalActive}
-                />
+                <Buttons />
             </div>
         </div>
     );
-};
+});
 export default Home;

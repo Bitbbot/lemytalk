@@ -4,6 +4,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import UserStore from "./store/UserStore";
 import MessageStore from "./store/MessageStore";
+import ModalsStore from "./store/ModalsStore";
 
 export const Context = createContext(null);
 
@@ -14,6 +15,7 @@ root.render(
             value={{
                 user: new UserStore(),
                 messages: new MessageStore(),
+                modals: new ModalsStore(),
             }}
         >
             <App />

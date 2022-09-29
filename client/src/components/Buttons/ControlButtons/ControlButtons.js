@@ -3,8 +3,9 @@ import { observer } from "mobx-react-lite";
 import { useContext } from "react";
 import { Context } from "../../../index";
 
-const ControlButtons = observer((props) => {
+const ControlButtons = observer(() => {
     const { user } = useContext(Context);
+    const { modals } = useContext(Context);
     return (
         <div className={s.wrapper}>
             <div
@@ -12,7 +13,7 @@ const ControlButtons = observer((props) => {
                 onClick={() => {
                     if (user.isAuth === true) {
                     } else {
-                        props.setIsModalActive(true);
+                        modals.setIsLogin(true);
                     }
                 }}
             >
@@ -23,7 +24,7 @@ const ControlButtons = observer((props) => {
                 onClick={() => {
                     if (user.isAuth === true) {
                     } else {
-                        props.setIsModalActive(true);
+                        modals.setIsLogin(true);
                     }
                 }}
             >
@@ -33,9 +34,9 @@ const ControlButtons = observer((props) => {
                 className={`${s.button} ${s.complain}`}
                 onClick={() => {
                     if (user.isAuth === true) {
-                        props.setIsReportActive(true);
+                        modals.setIsReport(true);
                     } else {
-                        props.setIsModalActive(true);
+                        modals.setIsLogin(true);
                     }
                 }}
             >

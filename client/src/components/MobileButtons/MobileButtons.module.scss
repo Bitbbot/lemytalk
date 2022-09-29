@@ -15,6 +15,20 @@
     margin: 0 5px;
     padding: 10px;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    z-index: 1;}
+}
+img:focus{
+    outline: none;
 }
 .button img{
     width:100%;
@@ -22,27 +36,27 @@
 .options{
     background-color: #a1a1a1;
 }
-.options:active{
-    background-color: #8f8f8f;
-}
+/*.options:active{*/
+/*    background-color: #8f8f8f;*/
+/*}*/
 .report{
     background-color: #d55454;
 }
-.report:active{
-    background-color: #be4343;
-}
+/*.report:active{*/
+/*    background-color: #be4343;*/
+/*}*/
 .start{
     background-color: #51a951;
 }
-.start:active{
-    background-color: #489648;
-}
+/*.start:active{*/
+/*    background-color: #489648;*/
+/*}*/
 .stop{
     background-color: rgba(218, 187, 93, 0.91);
 }
-.stop:active{
-    background-color: rgba(208, 167, 60, 0.91);
-}
+/*.stop:active{*/
+/*    background-color: rgba(208, 167, 60, 0.91);*/
+/*}*/
 @media screen and (max-width: 767px) {
     .wrapper{
         display: block;

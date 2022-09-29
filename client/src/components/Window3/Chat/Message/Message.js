@@ -1,18 +1,18 @@
 import s from "./Message.module.css";
 
-const Message = ({ message }) => {
+const Message = (props) => {
     return (
         <div className={s.wrapper}>
-            {message["user"] === "you" ? (
+            {props.message["user"] === "you" ? (
                 <div className={s.you}>
-                    <div className={s.text}>{message.text}</div>
+                    <div className={s.text}>{props.message.text}</div>
                 </div>
             ) : (
                 <div></div>
             )}
-            {message["user"] === "stranger" ? (
+            {props.message["user"] === "stranger" ? (
                 <div className={s.stranger}>
-                    <div className={s.text}>{message.text}</div>
+                    <div className={s.text}>{props.message.text}</div>
                 </div>
             ) : (
                 <div></div>

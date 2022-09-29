@@ -1,19 +1,26 @@
 import googleAuth from "../../utils/googleAuth";
 import Close from "../../assets/img/close.png";
-import s from "./Login.module.css";
+import s from "./Login.module.scss";
+import { observer } from "mobx-react-lite";
+import { useContext } from "react";
+import { Context } from "../../index";
 
-const Login = (props) => {
-    if (props.isModalActive === true) {
+const Login = observer(() => {
+    const { modals } = useContext(Context);
+    if (modals.isLogin === true) {
         return (
             <div className={s.wrapper}>
                 <div className={s.content}>
-                    <div className={s.close_wrapper}>
+                    <div
+                        className={s.close_wrapper}
+                        onClick={() => {
+                            modals.setIsLogin(false);
+                        }}
+                    >
                         <img
                             src={Close}
                             width="20px"
-                            onClick={() => {
-                                props.setIsModalActive(false);
-                            }}
+                            height="20px"
                             className={s.close_img}
                         />
                     </div>
@@ -40,6 +47,6 @@ const Login = (props) => {
     } else {
         return <div></div>;
     }
-};
+});
 
 export default Login;

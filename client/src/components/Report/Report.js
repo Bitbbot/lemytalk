@@ -1,4 +1,4 @@
-import s from "./Report.module.css";
+import s from "./Report.module.scss";
 import Close from "../../assets/img/close.png";
 import { useContext, useState } from "react";
 import { observer } from "mobx-react-lite";

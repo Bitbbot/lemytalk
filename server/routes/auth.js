@@ -1,7 +1,8 @@
-const router = require("express").Router();
-const passport = require("passport");
+import { Router } from "express";
+import passport from "passport";
+import { CLIENT_URL } from "../env.js";
 
-const CLIENT_URL = "http://localhost:3000/";
+const router = new Router();
 
 router.get("/login/success", (req, res) => {
     if (req.user) {
@@ -39,4 +40,4 @@ router.get(
     })
 );
 
-module.exports = router;
+export default router;

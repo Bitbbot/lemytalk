@@ -1,4 +1,4 @@
-import s from "./LanguageButtons.module.css";
+import s from "./LanguageButtons.module.scss";
 import languages from "../../../utils/getLanguages";
 import Close from "../../../assets/img/close.png";
 import { observer } from "mobx-react-lite";

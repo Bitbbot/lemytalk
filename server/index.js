@@ -1,15 +1,17 @@
-const cookieSession = require("cookie-session");
-const express = require("express");
-const cors = require("cors");
-const passportSetup = require("./passport");
-const passport = require("passport");
-const authRoute = require("./routes/auth");
+import cookieSession from "cookie-session";
+import express from "express";
+import cors from "cors";
+import passportSetup from "./passport.js";
+import passport from "passport";
+import authRoute from "./routes/auth.js";
+import { CLIENT_URL } from "./env.js";
 const app = express();
 
 app.use(
     cookieSession({
         name: "session",
         keys: ["lama"],
+
         maxAge: 24 * 60 * 60 * 100,
     })
 );
@@ -19,7 +21,7 @@ app.use(passport.session());
 
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: CLIENT_URL,
         methods: "GET,POST,PUT,DELETE",
         credentials: true,
     })

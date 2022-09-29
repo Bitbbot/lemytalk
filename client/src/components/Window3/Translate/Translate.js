@@ -1,4 +1,4 @@
-import s from "./Translate.module.css";
+import s from "./Translate.module.scss";
 import { useContext } from "react";
 import { Context } from "../../../index";
 import classNames from "classnames";

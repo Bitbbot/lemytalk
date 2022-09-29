@@ -1,4 +1,4 @@
-import s from "./Window2.module.css";
+import s from "./Window2.module.scss";
 
 const Window2 = () => {
     return (

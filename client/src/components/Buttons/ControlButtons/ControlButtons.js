@@ -1,4 +1,4 @@
-import s from "./ControlButtons.module.css";
+import s from "./ControlButtons.module.scss";
 import { observer } from "mobx-react-lite";
 import { useContext } from "react";
 import { Context } from "../../../index";

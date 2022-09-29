@@ -1,3 +1,5 @@
+import { SERVER_URL } from "../env";
+
 export default () => {
-    window.open("http://localhost:5000/auth/logout", "_self");
+    window.open(`${SERVER_URL}/auth/logout`, "_self");
 };

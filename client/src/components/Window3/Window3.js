@@ -1,4 +1,4 @@
-import s from "./Window3.module.css";
+import s from "./Window3.module.scss";
 import Translate from "./Translate/Translate";
 import Chat from "./Chat/Chat";
 import { observer } from "mobx-react-lite";

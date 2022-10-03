@@ -5,6 +5,7 @@ import { CLIENT_URL } from "../env.js";
 const router = new Router();
 
 router.get("/login/success", (req, res) => {
+    // console.log(req.user);
     if (req.user) {
         res.status(200).json({
             success: true,
@@ -23,6 +24,11 @@ router.get("/login/failed", (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
+    // console.log(req.cookies.session);
+    const id = JSON.parse(atob(req.cookies.session))?.passport?.user?.id;
+    const provider = JSON.parse(atob(req.cookies.session))?.passport?.user
+        ?.provider;
+    // console.log(id, sm);
     req.logout();
     res.redirect(CLIENT_URL);
 });

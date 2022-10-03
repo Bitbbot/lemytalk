@@ -8,7 +8,7 @@ import { react, useContext, useEffect, useRef, useState } from "react";
 import Header from "./components/Header/Header";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
-import "./App.css";
+import "./App.scss";
 import { Context } from "./index";
 import { observer } from "mobx-react-lite";
 import getUser from "./utils/getUser";

@@ -1,7 +1,7 @@
 import { SERVER_URL } from "../env";
 
 export default async () => {
-    return await fetch(`${SERVER_URL}/auth/login/success`, {
+    return await fetch(`${SERVER_URL}/api/auth/login/success`, {
         method: "GET",
         credentials: "include",
         headers: {

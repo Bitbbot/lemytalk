@@ -1,5 +1,5 @@
 import { SERVER_URL } from "../env";
 
 export default () => {
-    window.open(`${SERVER_URL}/auth/logout`, "_self");
+    window.open(`${SERVER_URL}/api/auth/logout`, "_self");
 };

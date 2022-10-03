@@ -7,8 +7,8 @@ export default class UserStore {
         this._width = 0;
         this._isTalking = false;
         this._nativeLanguage = "Russian";
-        this._studiedLanguage = "English";
-        this._level = "Beginner";
+        this._studiedLanguage = "";
+        this._level = "";
         makeAutoObservable(this);
     }
     setIsAuth(bool) {

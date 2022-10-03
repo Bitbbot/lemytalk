@@ -1,10 +1,14 @@
+import * as models from "./models/models.js";
 import cookieSession from "cookie-session";
 import express from "express";
 import cors from "cors";
 import passportSetup from "./passport.js";
 import passport from "passport";
-import authRoute from "./routes/auth.js";
-import { CLIENT_URL } from "./env.js";
+import router from "./routes/index.js";
+import { CLIENT_URL, PORT } from "./env.js";
+import cookieParser from "cookie-parser";
+import { sequelize } from "./db.js";
+
 const app = express();
 
 app.use(
@@ -12,13 +16,12 @@ app.use(
         name: "session",
         keys: ["lama"],
 
-        maxAge: 24 * 60 * 60 * 100,
+        maxAge: 24 * 60 * 60 * 1000,
     })
 );
-
+app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(
     cors({
         origin: CLIENT_URL,
@@ -26,9 +29,17 @@ app.use(
         credentials: true,
     })
 );
+app.use(express.json());
+app.use("/api", router);
 
-app.use("/auth", authRoute);
+const start = async () => {
+    try {
+        await sequelize.authenticate();
+        await sequelize.sync();
+        app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+    } catch (e) {
+        console.log(e);
+    }
+};
 
-app.listen("5000", () => {
-    console.log("Server is running!");
-});
+start();

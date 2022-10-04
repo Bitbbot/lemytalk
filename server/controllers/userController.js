@@ -1,27 +1,48 @@
-// import { User } from "../models/models.js";
-// import ApiError from "../error/ApiError.js";
-// import bcrypt from "bcrypt";
-//
-// class UserController {
-//     async registration(req, res) {
-//         const { authMethod } = req.body;
-//         const user = await User.create({ authMethod });
-//         return res.json({ user });
-//     }
-//     async login(req, res) {}
-//     async check(req, res, next) {
-//         const { id } = req.query;
-//         if (!id) {
-//             return next(ApiError.badRequest("no id"));
-//         }
-//         res.json({ message: "j" });
-//     }
-//     async getOne(req, res) {
-//         const { id } = req.params;
-//         const user = await User.findOne({
-//             where: { id: id },
-//         });
-//         return res.json(user);
-//     }
-// }
-// export default new UserController();
+import { User } from "../models/models.js";
+import ApiError from "../error/ApiError.js";
+
+class UserController {
+    async create(req, res, next) {
+        try {
+            const user = await User.create({
+                authId: req.user.authId,
+                authMethod: req.user.authMethod,
+            });
+            return res.json({ user });
+        } catch (e) {
+            next(ApiError.badRequest(e.message));
+        }
+    }
+    async updateLanguages(req, res, next) {
+        try {
+            const { nativeLanguage, studiedLanguage, languageLevel } = req.body;
+            const user = await User.update(
+                { nativeLanguage, studiedLanguage, languageLevel },
+                {
+                    where: {
+                        authId: req.user.authId,
+                        authMethod: req.user.authMethod,
+                    },
+                }
+            );
+            return res.json({ user });
+        } catch (e) {
+            next(ApiError.badRequest(e.message));
+        }
+    }
+    async getOne(req, res, next) {
+        try {
+            const user = await User.findOne({
+                where: {
+                    authId: req?.user?.authId,
+                    authMethod: req?.user?.authMethod,
+                },
+            });
+            // console.log("m wo");
+            return res.json(user);
+        } catch (e) {
+            next(ApiError.badRequest(e.message));
+        }
+    }
+}
+export default new UserController();

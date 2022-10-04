@@ -22,10 +22,11 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
-    done(null, user);
+    done(null, { authId: user.id, authMethod: user.provider });
 });
 
 passport.deserializeUser((user, done) => {
+    // console.log(user);
     done(null, user);
 });
 

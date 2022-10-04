@@ -9,7 +9,7 @@ router.get("/login/success", (req, res) => {
     if (req.user) {
         res.status(200).json({
             success: true,
-            message: "successfull",
+            message: "successful",
             user: req.user,
             //   cookies: req.cookies
         });
@@ -24,11 +24,6 @@ router.get("/login/failed", (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-    // console.log(req.cookies.session);
-    const id = JSON.parse(atob(req.cookies.session))?.passport?.user?.id;
-    const provider = JSON.parse(atob(req.cookies.session))?.passport?.user
-        ?.provider;
-    // console.log(id, sm);
     req.logout();
     res.redirect(CLIENT_URL);
 });

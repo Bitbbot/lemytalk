@@ -12,6 +12,7 @@ import "./App.scss";
 import { Context } from "./index";
 import { observer } from "mobx-react-lite";
 import getUser from "./utils/getUser";
+import getUserInfo from "./utils/getUserInfo";
 import LanguageButtons from "./components/Buttons/LanguageButtons/LanguageButtons";
 import Report from "./components/Report/Report";
 
@@ -33,6 +34,7 @@ const App = observer(() => {
     useEffect(() => {
         getUser().then((e) => {
             user.setIsAuth(e);
+            if (user.isAuth === true) getUserInfo();
         });
     }, []);
     return (

@@ -3,9 +3,8 @@ import { DataTypes } from "sequelize";
 
 const User = sequelize.define("user", {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    authId: { type: DataTypes.STRING, allowNull: false },
     authMethod: { type: DataTypes.STRING, allowNull: false },
-    authKey: { type: DataTypes.STRING },
-    authSecret: { type: DataTypes.STRING },
     nativeLanguage: { type: DataTypes.STRING },
     studiedLanguage: { type: DataTypes.STRING },
     languageLevel: { type: DataTypes.STRING },

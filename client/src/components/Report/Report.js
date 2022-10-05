@@ -21,14 +21,18 @@ const Report = observer(() => {
             <div className={s.wrapper}>
                 <div className={s.report_wrapper}>
                     <div className={s.close_wrapper}>
-                        <img
-                            src={Close}
-                            width="20px"
+                        <div
+                            className={s.close_img_wrapper}
                             onClick={() => {
                                 modals.setIsReport(false);
                             }}
-                            className={s.close_img}
-                        />
+                        >
+                            <img
+                                src={Close}
+                                width="20px"
+                                className={s.close_img}
+                            />
+                        </div>
                     </div>
                     <div className={s.title}>Choose the reason of report</div>
                     <div>

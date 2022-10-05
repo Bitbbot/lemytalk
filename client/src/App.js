@@ -14,6 +14,7 @@ import { observer } from "mobx-react-lite";
 import { checkUser, getUser, createUser } from "./api/userAPI";
 import LanguageButtons from "./components/Buttons/LanguageButtons/LanguageButtons";
 import Report from "./components/Report/Report";
+import HelloWindow from "./components/HelloWindow/HelloWindow";
 
 const App = observer(() => {
     const { user, modals } = useContext(Context);
@@ -40,17 +41,17 @@ const App = observer(() => {
                         user.setStudiedLanguage(response.studiedLanguage);
                         user.setLevel(response.languageLevel);
                     } catch (e) {
-                        modals.setIsSettings(true);
+                        modals.setIsHello(true);
                     }
                     if (response === null) {
                         createUser();
                     }
                     if (
-                        response.nativeLanguage === "" &&
-                        response.studiedLanguage === "" &&
-                        response.languageLevel === ""
+                        response?.nativeLanguage === "" &&
+                        response?.studiedLanguage === "" &&
+                        response?.languageLevel === ""
                     )
-                        modals.setIsSettings(true);
+                        modals.setIsHello(true);
                 });
         });
     }, []);
@@ -64,6 +65,7 @@ const App = observer(() => {
                 <Login />
                 <LanguageButtons />
                 <Report />
+                <HelloWindow />
             </div>
         </Router>
     );

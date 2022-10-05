@@ -50,3 +50,17 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.close_img_wrapper{
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    cursor: pointer;
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        z-index: 1;}
+}

@@ -11,18 +11,20 @@ const Login = observer(() => {
         return (
             <div className={s.wrapper}>
                 <div className={s.content}>
-                    <div
-                        className={s.close_wrapper}
-                        onClick={() => {
-                            modals.setIsLogin(false);
-                        }}
-                    >
-                        <img
-                            src={Close}
-                            width="20px"
-                            height="20px"
-                            className={s.close_img}
-                        />
+                    <div className={s.close_wrapper}>
+                        <div
+                            className={s.close_img_wrapper}
+                            onClick={() => {
+                                modals.setIsLogin(false);
+                            }}
+                        >
+                            <img
+                                src={Close}
+                                width="20px"
+                                height="20px"
+                                className={s.close_img}
+                            />
+                        </div>
                     </div>
                     <div className={s.content_wrapper}>
                         <div className={s.title}>Choose a Login Method</div>

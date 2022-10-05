@@ -1,17 +1,15 @@
 import { Router } from "express";
 import passport from "passport";
 import { CLIENT_URL } from "../env.js";
-
+import userController from "../controllers/userController.js";
 const router = new Router();
 
 router.get("/login/success", (req, res) => {
-    // console.log(req.user);
     if (req.user) {
         res.status(200).json({
             success: true,
             message: "successful",
             user: req.user,
-            //   cookies: req.cookies
         });
     }
 });

@@ -6,7 +6,6 @@ class UserController {
         try {
             const user = await User.create({
                 authId: req.user.authId,
-                authMethod: req.user.authMethod,
             });
             return res.json({ user });
         } catch (e) {
@@ -21,7 +20,6 @@ class UserController {
                 {
                     where: {
                         authId: req.user.authId,
-                        authMethod: req.user.authMethod,
                     },
                 }
             );
@@ -34,11 +32,9 @@ class UserController {
         try {
             const user = await User.findOne({
                 where: {
-                    authId: req?.user?.authId,
-                    authMethod: req?.user?.authMethod,
+                    authId: req.user.authId,
                 },
             });
-            // console.log("m wo");
             return res.json(user);
         } catch (e) {
             next(ApiError.badRequest(e.message));

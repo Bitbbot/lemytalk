@@ -14,7 +14,11 @@ const Translate = () => {
                         maxLength="200"
                         placeholder="Do not hesitate to use me"
                     ></textarea>
-                    <div className={s.language}>{user.nativeLanguage}</div>
+                    <div className={s.language}>
+                        {user.nativeLanguage !== ""
+                            ? user.nativeLanguage
+                            : "Native language"}
+                    </div>
                 </div>
                 <div
                     className={classNames([
@@ -23,7 +27,11 @@ const Translate = () => {
                     ])}
                 >
                     <textarea maxLength="200"></textarea>
-                    <div className={s.language}>{user.studiedLanguage}</div>
+                    <div className={s.language}>
+                        {user.studiedLanguage !== ""
+                            ? user.studiedLanguage
+                            : "Studied language"}
+                    </div>
                 </div>
             </div>
         </div>

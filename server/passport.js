@@ -14,19 +14,16 @@ passport.use(
             callbackURL: "/api/auth/google/callback",
         },
         function (accessToken, refreshToken, profile, done) {
-            // console.log(accessToken, refreshToken);
-            // console.log(profile);
             done(null, profile);
         }
     )
 );
 
 passport.serializeUser((user, done) => {
-    done(null, { authId: user.id, authMethod: user.provider });
+    done(null, { authId: user.provider[0] + user.id });
 });
 
 passport.deserializeUser((user, done) => {
-    // console.log(user);
     done(null, user);
 });
 

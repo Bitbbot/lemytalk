@@ -3,11 +3,11 @@ import { DataTypes } from "sequelize";
 
 const User = sequelize.define("user", {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    authId: { type: DataTypes.STRING, allowNull: false },
-    authMethod: { type: DataTypes.STRING, allowNull: false },
-    nativeLanguage: { type: DataTypes.STRING },
-    studiedLanguage: { type: DataTypes.STRING },
-    languageLevel: { type: DataTypes.STRING },
+    authId: { type: DataTypes.STRING, allowNull: false, unique: true },
+    authMethod: { type: DataTypes.STRING },
+    nativeLanguage: { type: DataTypes.STRING, defaultValue: "" },
+    studiedLanguage: { type: DataTypes.STRING, defaultValue: "" },
+    languageLevel: { type: DataTypes.STRING, defaultValue: "" },
     latitude: { type: DataTypes.FLOAT },
     longitude: { type: DataTypes.FLOAT },
     complains: { type: DataTypes.INTEGER, defaultValue: 0 },

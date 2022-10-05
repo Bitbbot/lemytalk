@@ -4,13 +4,23 @@ import Close from "../../../assets/img/close.png";
 import { observer } from "mobx-react-lite";
 import { useContext } from "react";
 import { Context } from "../../../index";
+import { updateLanguages } from "../../../api/userAPI";
 
 const LanguageButtons = observer(() => {
     const { modals, user } = useContext(Context);
     const handleClose = () => {
-        // if
-        // user.setNativeLanguage()
-        // user.setStudiedLanguage()
+        if (
+            user.nativeLanguage !== "" &&
+            user.studiedLanguage !== "" &&
+            user.level !== ""
+        ) {
+            modals.setIsSettings(false);
+            updateLanguages(
+                user.nativeLanguage,
+                user.studiedLanguage,
+                user.level
+            );
+        } else window.alert("All fields must be completed");
     };
     if (modals.isSettings === true) {
         return (
@@ -19,7 +29,7 @@ const LanguageButtons = observer(() => {
                     <div
                         className={s.close_wrapper}
                         onClick={() => {
-                            modals.setIsSettings(false);
+                            handleClose();
                         }}
                     >
                         <img
@@ -37,13 +47,9 @@ const LanguageButtons = observer(() => {
                             }}
                             defaultValue={user.nativeLanguage}
                         >
-                            {languages.names.map((name) =>
-                                name === user.nativeLanguage ? (
-                                    <option key={name}>{name}</option>
-                                ) : (
-                                    <option key={name}>{name}</option>
-                                )
-                            )}
+                            {languages.names.map((name) => (
+                                <option key={name}>{name}</option>
+                            ))}
                         </select>
                     </div>
                     <div>
@@ -52,6 +58,7 @@ const LanguageButtons = observer(() => {
                             onChange={(e) => {
                                 user.setStudiedLanguage(e.target.value);
                             }}
+                            defaultValue={user.studiedLanguage}
                         >
                             {languages.names.map((name) => (
                                 <option key={name}>{name}</option>
@@ -64,6 +71,7 @@ const LanguageButtons = observer(() => {
                             onChange={(e) => {
                                 user.setLevel(e.target.value);
                             }}
+                            defaultValue={user.level}
                         >
                             {languages.levels.map((level) => (
                                 <option key={level}>{level}</option>

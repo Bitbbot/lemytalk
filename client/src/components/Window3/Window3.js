@@ -17,7 +17,6 @@ const Window3 = observer(() => {
                     <Chat />
                 </>
             ) : (
-                // </div>
                 <div className={s.mobile_wrapper}>
                     {element === "chat" ? (
                         <>

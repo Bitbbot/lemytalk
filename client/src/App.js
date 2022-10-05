@@ -11,13 +11,12 @@ import Home from "./pages/Home/Home";
 import "./App.scss";
 import { Context } from "./index";
 import { observer } from "mobx-react-lite";
-import getUser from "./utils/getUser";
-import getUserInfo from "./utils/getUserInfo";
+import { checkUser, getUser, createUser } from "./api/userAPI";
 import LanguageButtons from "./components/Buttons/LanguageButtons/LanguageButtons";
 import Report from "./components/Report/Report";
 
 const App = observer(() => {
-    const { user } = useContext(Context);
+    const { user, modals } = useContext(Context);
     const width = useRef(null);
 
     useEffect(() => {
@@ -32,9 +31,27 @@ const App = observer(() => {
         };
     }, []);
     useEffect(() => {
-        getUser().then((e) => {
+        checkUser().then((e) => {
             user.setIsAuth(e);
-            if (user.isAuth === true) getUserInfo();
+            if (user.isAuth === true)
+                getUser().then((response) => {
+                    try {
+                        user.setNativeLanguage(response.nativeLanguage);
+                        user.setStudiedLanguage(response.studiedLanguage);
+                        user.setLevel(response.languageLevel);
+                    } catch (e) {
+                        modals.setIsSettings(true);
+                    }
+                    if (response === null) {
+                        createUser();
+                    }
+                    if (
+                        response.nativeLanguage === "" &&
+                        response.studiedLanguage === "" &&
+                        response.languageLevel === ""
+                    )
+                        modals.setIsSettings(true);
+                });
         });
     }, []);
     return (

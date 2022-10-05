@@ -42,7 +42,6 @@ const MobileButtons = observer(() => {
                     className={classNames([s.stop, s.button])}
                     onClick={() => {
                         if (user.isAuth === true) {
-                            // props.setIsReportActive(true);
                         } else {
                             modals.setIsLogin(true);
                         }
@@ -54,7 +53,6 @@ const MobileButtons = observer(() => {
                     className={classNames([s.start, s.button])}
                     onClick={() => {
                         if (user.isAuth === true) {
-                            // props.setIsReportActive(true);
                         } else {
                             modals.setIsLogin(true);
                         }

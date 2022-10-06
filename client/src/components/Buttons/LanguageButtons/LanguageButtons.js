@@ -1,8 +1,7 @@
 import s from "./LanguageButtons.module.scss";
 import { languages } from "../../../env";
-import Close from "../../../assets/img/close.png";
 import { observer } from "mobx-react-lite";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../../../index";
 import { updateLanguages } from "../../../api/userAPI";
 
@@ -18,7 +17,8 @@ const LanguageButtons = observer(() => {
             updateLanguages(
                 user.nativeLanguage,
                 user.studiedLanguage,
-                user.level
+                user.level,
+                user.isNotifications
             );
         } else window.alert("All fields must be completed");
     };
@@ -26,21 +26,6 @@ const LanguageButtons = observer(() => {
         return (
             <div className={s.wrapper}>
                 <div className={s.options_wrapper}>
-                    <div className={s.close_wrapper}>
-                        <div
-                            className={s.close_img_wrapper}
-                            onClick={() => {
-                                handleClose();
-                            }}
-                        >
-                            <img
-                                src={Close}
-                                width="20px"
-                                height="20px"
-                                className={s.close_img}
-                            />
-                        </div>
-                    </div>
                     <div>
                         <div className={s.description}>Native language</div>
                         <select
@@ -80,8 +65,26 @@ const LanguageButtons = observer(() => {
                             ))}
                         </select>
                     </div>
-                    <div className={s.changes}>
-                        Сhanges will be saved automatically
+                    <div className={s.checkbox_wrapper}>
+                        <input
+                            type="checkbox"
+                            checked={user.isNotifications}
+                            className={s.checkbox}
+                            onChange={() => {
+                                user.setIsNotifications(!user.isNotifications);
+                            }}
+                        />
+                        <div className={s.checkbox_description}>
+                            Send me updates, recommendations and learning tips
+                        </div>
+                    </div>
+                    <div
+                        className={s.save}
+                        onClick={() => {
+                            handleClose();
+                        }}
+                    >
+                        Save
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import s from "./Login.module.scss";
 import { observer } from "mobx-react-lite";
 import { useContext } from "react";
 import { Context } from "../../index";
+import classNames from "classnames";
 
 const Login = observer(() => {
     const { modals } = useContext(Context);
@@ -30,17 +31,25 @@ const Login = observer(() => {
                         <div className={s.title}>Choose a Login Method</div>
                         <div>
                             <div
-                                className={s.google}
+                                className={classNames([s.button, s.google])}
                                 onClick={() => {
                                     googleAuth();
                                 }}
                             >
                                 Google
                             </div>
+                            <div className={classNames([s.button, s.facebook])}>
+                                Facebook
+                            </div>
+                            <div className={classNames([s.button, s.vk])}>
+                                Vk
+                            </div>
                         </div>
                         <div className={s.policies}>
-                            <div>Accepting Policy</div>
-                            <div>Agreement</div>
+                            <div>
+                                By signing up, you agree to our Terms of Use and
+                                Privacy Policy
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -2,8 +2,9 @@ import s from "./Translate.module.scss";
 import { useContext } from "react";
 import { Context } from "../../../index";
 import classNames from "classnames";
+import { observer } from "mobx-react-lite";
 
-const Translate = () => {
+const Translate = observer(() => {
     const { user } = useContext(Context);
     return (
         <div className={s.wrapper}>
@@ -36,5 +37,5 @@ const Translate = () => {
             </div>
         </div>
     );
-};
+});
 export default Translate;

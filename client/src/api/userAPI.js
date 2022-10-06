@@ -23,7 +23,8 @@ export const createUser = async () => {
 export const updateLanguages = async (
     nativeLanguage,
     studiedLanguage,
-    languageLevel
+    languageLevel,
+    isNotifications
 ) => {
     const response = await $host.put(
         `${SERVER_URL}/api/user/updateLanguages/`,
@@ -31,6 +32,7 @@ export const updateLanguages = async (
             nativeLanguage,
             studiedLanguage,
             languageLevel,
+            isNotifications,
         },
         {
             withCredentials: true,

@@ -40,6 +40,7 @@ const App = observer(() => {
                         user.setNativeLanguage(response.nativeLanguage);
                         user.setStudiedLanguage(response.studiedLanguage);
                         user.setLevel(response.languageLevel);
+                        user.setIsNotifications(response.isNotifications);
                     } catch (e) {
                         modals.setIsHello(true);
                     }

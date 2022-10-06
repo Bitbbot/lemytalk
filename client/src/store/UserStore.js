@@ -9,6 +9,7 @@ export default class UserStore {
         this._nativeLanguage = "";
         this._studiedLanguage = "";
         this._level = "";
+        this._isNotifications = false;
         makeAutoObservable(this);
     }
     setIsAuth(bool) {
@@ -16,6 +17,9 @@ export default class UserStore {
     }
     setWidth(num) {
         this._width = num;
+    }
+    setIsNotifications(bool) {
+        this._isNotifications = bool;
     }
     setUser(user) {
         this._user = user;
@@ -31,6 +35,9 @@ export default class UserStore {
     }
     setLevel(level) {
         this._level = level;
+    }
+    get isNotifications() {
+        return this._isNotifications;
     }
     get width() {
         return this._width;

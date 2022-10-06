@@ -13,7 +13,7 @@
 }
 .options_wrapper{
     background-color: white;
-    padding: 20px;
+    padding: 0 20px 20px 20px;
     border-radius: 12px;
     width: 300px;
     display: flex;
@@ -44,17 +44,29 @@ select{
     margin-top: 20px;
     font-size: 15px;
 }
-.close_img_wrapper{
-    -webkit-tap-highlight-color: transparent;
-    position: relative;
+
+.checkbox_wrapper{
+    display: flex;
+    margin-top: 20px;
+    padding:0 30px;
+}
+.checkbox{
+    width:40px;
+    margin-right: 10px;
+}
+.checkbox_description{
+    font-size: 16px;
+}
+.save{
+    margin-top: 20px;
+    background-color: #51a951;
+    width:190px;
+    text-align: center;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
     cursor: pointer;
-    &:before{
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: block;
-        z-index: 1;}
+}
+.save:hover{
+    background-color: #489648;
 }

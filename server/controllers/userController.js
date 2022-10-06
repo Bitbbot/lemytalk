@@ -14,9 +14,19 @@ class UserController {
     }
     async updateLanguages(req, res, next) {
         try {
-            const { nativeLanguage, studiedLanguage, languageLevel } = req.body;
+            const {
+                nativeLanguage,
+                studiedLanguage,
+                languageLevel,
+                isNotifications,
+            } = req.body;
             const user = await User.update(
-                { nativeLanguage, studiedLanguage, languageLevel },
+                {
+                    nativeLanguage,
+                    studiedLanguage,
+                    languageLevel,
+                    isNotifications,
+                },
                 {
                     where: {
                         authId: req.user.authId,

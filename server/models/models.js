@@ -8,6 +8,7 @@ const User = sequelize.define("user", {
     nativeLanguage: { type: DataTypes.STRING, defaultValue: "" },
     studiedLanguage: { type: DataTypes.STRING, defaultValue: "" },
     languageLevel: { type: DataTypes.STRING, defaultValue: "" },
+    isNotifications: { type: DataTypes.BOOLEAN, defaultValue: false },
     latitude: { type: DataTypes.FLOAT },
     longitude: { type: DataTypes.FLOAT },
     complains: { type: DataTypes.INTEGER, defaultValue: 0 },

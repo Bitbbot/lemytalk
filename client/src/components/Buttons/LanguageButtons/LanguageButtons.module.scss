@@ -70,3 +70,19 @@ select{
 .save:hover{
     background-color: #489648;
 }
+.error{
+    margin-top: 5px;
+    font-size: 15px;
+    color: red;
+    font-weight: bold;
+    width: 190px;
+    text-align: center;
+}
+.not_active{
+    cursor: default;
+;
+    background-color: #9fa89f;
+}
+.not_active:hover{
+    background-color: #9fa89f;
+}

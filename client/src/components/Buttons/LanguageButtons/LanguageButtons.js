@@ -4,6 +4,7 @@ import { observer } from "mobx-react-lite";
 import { useContext, useState } from "react";
 import { Context } from "../../../index";
 import { updateLanguages } from "../../../api/userAPI";
+import classNames from "classnames";
 
 const LanguageButtons = observer(() => {
     const { modals, user } = useContext(Context);
@@ -20,7 +21,7 @@ const LanguageButtons = observer(() => {
                 user.level,
                 user.isNotifications
             );
-        } else window.alert("All fields must be completed");
+        }
     };
     if (modals.isSettings === true) {
         return (
@@ -78,13 +79,39 @@ const LanguageButtons = observer(() => {
                             Send me updates, recommendations and learning tips
                         </div>
                     </div>
-                    <div
-                        className={s.save}
-                        onClick={() => {
-                            handleClose();
-                        }}
-                    >
-                        Save
+                    <div>
+                        {user.nativeLanguage !== "" &&
+                        user.studiedLanguage !== "" &&
+                        user.level !== "" ? (
+                            <div>
+                                <div
+                                    className={s.save}
+                                    onClick={() => {
+                                        handleClose();
+                                    }}
+                                >
+                                    Save
+                                </div>
+                            </div>
+                        ) : (
+                            <div>
+                                <div
+                                    className={classNames([
+                                        s.save,
+                                        s.not_active,
+                                    ])}
+                                >
+                                    Save
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                    <div className={s.error}>
+                        {user.nativeLanguage !== "" &&
+                        user.studiedLanguage !== "" &&
+                        user.level !== ""
+                            ? ""
+                            : "To continue choose your native language, studied language and it's level"}
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import s from "./Window1.module.scss";
-import noise from "../../assets/img/w9.png";
+import noise from "../../assets/img/Untitled8.svg";
 
 const Window1 = () => {
     return (

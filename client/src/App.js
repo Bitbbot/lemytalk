@@ -15,11 +15,14 @@ import { checkUser, getUser, createUser } from "./api/userAPI";
 import LanguageButtons from "./components/Buttons/LanguageButtons/LanguageButtons";
 import Report from "./components/Report/Report";
 import HelloWindow from "./components/HelloWindow/HelloWindow";
+import { connectionWithWebSocket } from "./utils/wsConnection/wsConnection";
 
 const App = observer(() => {
     const { user, modals } = useContext(Context);
     const width = useRef(null);
-
+    useEffect(() => {
+        connectionWithWebSocket();
+    }, []);
     useEffect(() => {
         user.setWidth(width.current ? width.current.offsetWidth : 0);
         window.addEventListener("resize", () => {

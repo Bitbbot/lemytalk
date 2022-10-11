@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import s from "./Header.module.scss";
-import logout from "../../utils/logout";
 import { useContext } from "react";
 import { Context } from "../../index";
 import { observer } from "mobx-react-lite";
+import { SERVER_URL } from "../../env";
 
 const Header = observer(() => {
     const { user } = useContext(Context);
@@ -17,7 +17,15 @@ const Header = observer(() => {
             </div>
             <div className={s.auth}>
                 {user.isAuth === true ? (
-                    <div className={s.login} onClick={logout}>
+                    <div
+                        className={s.login}
+                        onClick={() => {
+                            window.open(
+                                `${SERVER_URL}/api/auth/logout`,
+                                "_self"
+                            );
+                        }}
+                    >
                         Logout
                     </div>
                 ) : (

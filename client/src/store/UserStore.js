@@ -5,7 +5,9 @@ export default class UserStore {
         this._isAuth = false;
         this._id = "";
         this._width = 0;
-        this._isTalking = false;
+        //status = null, waiting, talking
+        this._status = null;
+        this._localStream = null;
         this._nativeLanguage = "";
         this._studiedLanguage = "";
         this._level = "";
@@ -18,14 +20,17 @@ export default class UserStore {
     setWidth(num) {
         this._width = num;
     }
+    setLocalStream(stream) {
+        this._localStream = stream;
+    }
+    setStatus(status) {
+        this._status = status;
+    }
     setIsNotifications(bool) {
         this._isNotifications = bool;
     }
     setId(id) {
         this._id = id;
-    }
-    setIsTalking(bool) {
-        this._isTalking = bool;
     }
     setNativeLanguage(language) {
         this._nativeLanguage = language;
@@ -51,13 +56,16 @@ export default class UserStore {
     get id() {
         return this._id;
     }
-    get isTalking() {
-        return this._isTalking;
-    }
     get nativeLanguage() {
         return this._nativeLanguage;
     }
     get studiedLanguage() {
         return this._studiedLanguage;
+    }
+    get localStream() {
+        return this._localStream;
+    }
+    get status() {
+        return this._status;
     }
 }

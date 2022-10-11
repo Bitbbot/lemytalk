@@ -9,10 +9,6 @@ export const connectionWithWebSocket = () => {
     });
 };
 
-export const registerUser = (id) => {
-    socket.emit("register user", id);
-};
-
 export const findPartner = (user) => {
     // console.log(user.id);
     socket.emit("find partner", {

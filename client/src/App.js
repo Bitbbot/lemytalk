@@ -15,10 +15,7 @@ import { checkUser, getUser, createUser } from "./utils/api/userAPI";
 import LanguageButtons from "./components/Buttons/LanguageButtons/LanguageButtons";
 import Report from "./components/Report/Report";
 import HelloWindow from "./components/HelloWindow/HelloWindow";
-import {
-    connectionWithWebSocket,
-    registerUser,
-} from "./utils/wsConnection/wsConnection";
+import { connectionWithWebSocket } from "./utils/wsConnection/wsConnection";
 
 const App = observer(() => {
     const { user, modals } = useContext(Context);

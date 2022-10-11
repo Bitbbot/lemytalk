@@ -3,7 +3,7 @@ import { makeAutoObservable } from "mobx";
 export default class UserStore {
     constructor() {
         this._isAuth = false;
-        this._user = {};
+        this._id = "";
         this._width = 0;
         this._isTalking = false;
         this._nativeLanguage = "";
@@ -21,8 +21,8 @@ export default class UserStore {
     setIsNotifications(bool) {
         this._isNotifications = bool;
     }
-    setUser(user) {
-        this._user = user;
+    setId(id) {
+        this._id = id;
     }
     setIsTalking(bool) {
         this._isTalking = bool;
@@ -48,8 +48,8 @@ export default class UserStore {
     get isAuth() {
         return this._isAuth;
     }
-    get user() {
-        return this._user;
+    get id() {
+        return this._id;
     }
     get isTalking() {
         return this._isTalking;

@@ -3,7 +3,7 @@ import { languages } from "../../../env";
 import { observer } from "mobx-react-lite";
 import { useContext, useState } from "react";
 import { Context } from "../../../index";
-import { updateLanguages } from "../../../api/userAPI";
+import { updateLanguages } from "../../../utils/api/userAPI";
 import classNames from "classnames";
 
 const LanguageButtons = observer(() => {

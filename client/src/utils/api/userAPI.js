@@ -1,5 +1,5 @@
 import { $host } from "./index";
-import { SERVER_URL } from "../env";
+import { SERVER_URL } from "../../env";
 
 export const checkUser = async () => {
     const response = await $host.get(`${SERVER_URL}/api/auth/login/success`, {

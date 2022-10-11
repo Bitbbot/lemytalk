@@ -2,6 +2,7 @@ import s from "./ControlButtons.module.scss";
 import { observer } from "mobx-react-lite";
 import { useContext } from "react";
 import { Context } from "../../../index";
+import { findPartner } from "../../../utils/wsConnection/wsConnection";
 
 const ControlButtons = observer(() => {
     const { user } = useContext(Context);
@@ -12,6 +13,7 @@ const ControlButtons = observer(() => {
                 className={`${s.button} ${s.start}`}
                 onClick={() => {
                     if (user.isAuth === true) {
+                        findPartner(user);
                     } else {
                         modals.setIsLogin(true);
                     }

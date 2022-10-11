@@ -11,18 +11,21 @@ import Home from "./pages/Home/Home";
 import "./App.scss";
 import { Context } from "./index";
 import { observer } from "mobx-react-lite";
-import { checkUser, getUser, createUser } from "./api/userAPI";
+import { checkUser, getUser, createUser } from "./utils/api/userAPI";
 import LanguageButtons from "./components/Buttons/LanguageButtons/LanguageButtons";
 import Report from "./components/Report/Report";
 import HelloWindow from "./components/HelloWindow/HelloWindow";
-import { connectionWithWebSocket } from "./utils/wsConnection/wsConnection";
+import {
+    connectionWithWebSocket,
+    registerUser,
+} from "./utils/wsConnection/wsConnection";
 
 const App = observer(() => {
     const { user, modals } = useContext(Context);
     const width = useRef(null);
-    useEffect(() => {
-        connectionWithWebSocket();
-    }, []);
+    // useEffect(() => {
+    //     connectionWithWebSocket();
+    // }, []);
     useEffect(() => {
         user.setWidth(width.current ? width.current.offsetWidth : 0);
         window.addEventListener("resize", () => {
@@ -56,6 +59,11 @@ const App = observer(() => {
                         response?.languageLevel === ""
                     )
                         modals.setIsHello(true);
+                    getUser().then((response) => {
+                        user.setId(response.authId);
+                    });
+                    connectionWithWebSocket();
+                    // registerUser(user.id);
                 });
         });
     }, []);

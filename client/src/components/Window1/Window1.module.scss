@@ -1,6 +1,6 @@
 .wrapper{
     width: 50%;
-    //background-color: darkgray;
+    //height: 100%;
     border: 1px solid #c5c5c5;
     border-top: 0;
     border-left: 0;
@@ -17,26 +17,13 @@
      display: block;
      z-index: 1;}
 }
-.img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 @media screen and (max-width: 767px) {
     .wrapper{
         position: absolute;
         top: 0px;
         left: 0px;
         width: 25%;
+        height: 25%;
         z-index: 1;
     }
-}
-.video_wrapper{
-  width: 100%;
-  height: 100%;
-}
-.video{
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
 }

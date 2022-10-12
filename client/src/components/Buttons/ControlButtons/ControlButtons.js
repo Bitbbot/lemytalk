@@ -1,12 +1,15 @@
 import s from "./ControlButtons.module.scss";
 import { observer } from "mobx-react-lite";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Context } from "../../../index";
 import { findPartner } from "../../../utils/wsConnection/wsConnection";
+import { getLocalStream } from "../../../utils/WebRTC/WebRTCHandler";
 
 const ControlButtons = observer(() => {
     const { user } = useContext(Context);
     const { modals } = useContext(Context);
+    // useEffect(() => {
+    // }, []);
     return (
         <div className={s.wrapper}>
             <div
@@ -14,6 +17,15 @@ const ControlButtons = observer(() => {
                 onClick={() => {
                     if (user.isAuth === true) {
                         findPartner(user);
+                        // if (user.localStream === null) {
+                        getLocalStream().then((stream) => {
+                            console.log(stream + "");
+                            if (stream) {
+                                user.setLocalStream(stream);
+                            } else modals.setIsAllowMedia(true);
+                            console.log(user.localStream);
+                        });
+                        // }
                     } else {
                         modals.setIsLogin(true);
                     }

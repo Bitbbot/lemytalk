@@ -6,6 +6,7 @@ export default class ModalsStore {
         this._isLogin = false;
         this._isReport = false;
         this._isHello = false;
+        this._isAllowMedia = false;
         makeAutoObservable(this);
     }
 
@@ -14,6 +15,12 @@ export default class ModalsStore {
     }
     get isSettings() {
         return this._isSettings;
+    }
+    setIsAllowMedia(bool) {
+        this._isAllowMedia = bool;
+    }
+    get isAllowMedia() {
+        return this._isAllowMedia;
     }
     setIsLogin(bool) {
         this._isLogin = bool;

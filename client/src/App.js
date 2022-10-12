@@ -4,7 +4,7 @@ import {
     Route,
     Navigate,
 } from "react-router-dom";
-import { react, useContext, useEffect, useRef, useState } from "react";
+import { react, useContext, useEffect, useRef } from "react";
 import Header from "./components/Header/Header";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
@@ -16,13 +16,11 @@ import LanguageButtons from "./components/Buttons/LanguageButtons/LanguageButton
 import Report from "./components/Report/Report";
 import HelloWindow from "./components/HelloWindow/HelloWindow";
 import { connectionWithWebSocket } from "./utils/wsConnection/wsConnection";
+import AllowMedia from "./components/AllowMedia/AllowMedia";
 
 const App = observer(() => {
     const { user, modals } = useContext(Context);
     const width = useRef(null);
-    // useEffect(() => {
-    //     connectionWithWebSocket();
-    // }, []);
     useEffect(() => {
         user.setWidth(width.current ? width.current.offsetWidth : 0);
         window.addEventListener("resize", () => {
@@ -60,7 +58,6 @@ const App = observer(() => {
                         user.setId(response.authId);
                     });
                     connectionWithWebSocket();
-                    // registerUser(user.id);
                 });
         });
     }, []);
@@ -75,6 +72,7 @@ const App = observer(() => {
                 <LanguageButtons />
                 <Report />
                 <HelloWindow />
+                <AllowMedia />
             </div>
         </Router>
     );

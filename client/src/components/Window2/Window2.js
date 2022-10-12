@@ -1,6 +1,10 @@
 import s from "./Window2.module.scss";
-import lemytalk from "../../assets/img/Untitled7.svg";
+import lemytalk from "../../assets/img/Untitled8.svg";
+import { useEffect } from "react";
 const Window2 = () => {
+    useEffect(() => {
+        console.log("render w2");
+    }, []);
     return (
         <div className={s.wrapper}>
             {/*<div className={s.title}>*/}
@@ -20,7 +24,7 @@ const Window2 = () => {
             {/*    /!*<li>- Start speaking</li>*!/*/}
             {/*</ul>*/}
             {/*<img src={picture} />*/}
-            <img src={lemytalk} width="100%" />
+            <img src={lemytalk} width="100%" height="100%" />
         </div>
     );
 };

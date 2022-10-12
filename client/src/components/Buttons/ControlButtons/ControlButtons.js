@@ -8,24 +8,38 @@ import { getLocalStream } from "../../../utils/WebRTC/WebRTCHandler";
 const ControlButtons = observer(() => {
     const { user } = useContext(Context);
     const { modals } = useContext(Context);
-    // useEffect(() => {
-    // }, []);
+
+    useEffect(() => {
+        console.log("render CB");
+    }, []);
+
     return (
         <div className={s.wrapper}>
             <div
                 className={`${s.button} ${s.start}`}
                 onClick={() => {
                     if (user.isAuth === true) {
+                        // getLocalStream().then((stream) => {
+                        //     if (user.localStream !== stream) {
+                        //         console.log(stream + "");
+                        //         if (stream) {
+                        //             user.setLocalStream(stream);
+                        //             findPartner(user);
+                        //         } else modals.setIsAllowMedia(true);
+                        //         console.log(user.localStream);
+                        //     }
+                        // });
+
+                        if (user.localStream === null) {
+                            getLocalStream().then((stream) => {
+                                console.log(stream + "");
+                                if (stream) {
+                                    user.setLocalStream(stream);
+                                } else modals.setIsAllowMedia(true);
+                                console.log(user.localStream);
+                            });
+                        }
                         findPartner(user);
-                        // if (user.localStream === null) {
-                        getLocalStream().then((stream) => {
-                            console.log(stream + "");
-                            if (stream) {
-                                user.setLocalStream(stream);
-                            } else modals.setIsAllowMedia(true);
-                            console.log(user.localStream);
-                        });
-                        // }
                     } else {
                         modals.setIsLogin(true);
                     }

@@ -33,6 +33,7 @@ const App = observer(() => {
         };
     }, []);
     useEffect(() => {
+        console.log("render");
         checkUser().then((e) => {
             user.setIsAuth(e);
             if (user.isAuth === true)

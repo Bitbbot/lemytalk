@@ -9,10 +9,6 @@ const ControlButtons = observer(() => {
     const { user } = useContext(Context);
     const { modals } = useContext(Context);
 
-    useEffect(() => {
-        console.log("render CB");
-    }, []);
-
     return (
         <div className={s.wrapper}>
             <div

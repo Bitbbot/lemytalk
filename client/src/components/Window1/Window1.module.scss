@@ -1,6 +1,5 @@
 .wrapper{
     width: 50%;
-    //height: 100%;
     border: 1px solid #c5c5c5;
     border-top: 0;
     border-left: 0;
@@ -16,6 +15,16 @@
      bottom: 0;
      display: block;
      z-index: 1;}
+}
+@media screen and (max-width: 900px) {
+    .wrapper{
+      height: 342px;
+    }
+}
+@media screen and (max-width: 800px) {
+  .wrapper{
+    height: 297px;
+  }
 }
 @media screen and (max-width: 767px) {
     .wrapper{

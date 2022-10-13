@@ -8,6 +8,7 @@ export default class UserStore {
         //status = null, waiting, talking
         this._status = null;
         this._localStream = null;
+        this._remoteStream = null;
         this._nativeLanguage = "";
         this._studiedLanguage = "";
         this._level = "";
@@ -22,6 +23,9 @@ export default class UserStore {
     }
     setLocalStream(stream) {
         this._localStream = stream;
+    }
+    setRemoteStream(stream) {
+        this._remoteStream = stream;
     }
     setStatus(status) {
         this._status = status;
@@ -64,6 +68,9 @@ export default class UserStore {
     }
     get localStream() {
         return this._localStream;
+    }
+    get remoteStream() {
+        return this._remoteStream;
     }
     get status() {
         return this._status;

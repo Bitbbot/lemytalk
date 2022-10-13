@@ -31,11 +31,13 @@ const ControlButtons = observer(() => {
                                 console.log(stream + "");
                                 if (stream) {
                                     user.setLocalStream(stream);
+                                    findPartner(user);
                                 } else modals.setIsAllowMedia(true);
                                 console.log(user.localStream);
                             });
+                        } else {
+                            findPartner(user);
                         }
-                        findPartner(user);
                     } else {
                         modals.setIsLogin(true);
                     }

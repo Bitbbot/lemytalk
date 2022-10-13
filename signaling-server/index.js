@@ -18,8 +18,8 @@ io.on("connection", (socket) => {
     socket.emit("connection", null);
     socket.on("find partner", (data) => {
         //check if user is waiting and delete him if he is
-        const peer = peers.findIndex((peer) => peer.userId === data.id);
-        if (peer !== -1) peers.splice(peer, 1);
+        // const peer = peers.findIndex((peer) => peer.userId === data.id);
+        // if (peer !== -1) peers.splice(peer, 1);
         //check if user is talking
         const room = rooms.findIndex(
             (room) =>

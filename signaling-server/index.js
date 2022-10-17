@@ -114,4 +114,4 @@ io.on("connection", (socket) => {
         });
     });
 });
-httpServer.listen(PORT);
+httpServer.listen(process.env.PORT || PORT);

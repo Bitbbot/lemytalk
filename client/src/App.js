@@ -17,6 +17,8 @@ import Report from "./components/Report/Report";
 import HelloWindow from "./components/HelloWindow/HelloWindow";
 import { connectionWithWebSocket } from "./utils/wsConnection/wsConnection";
 import AllowMedia from "./components/AllowMedia/AllowMedia";
+import axios from "axios";
+import { setTurnServers } from "./utils/WebRTC/TURN";
 
 const App = observer(() => {
     const { user, modals } = useContext(Context);
@@ -33,6 +35,10 @@ const App = observer(() => {
         };
     }, []);
     useEffect(() => {
+        axios.get("http://localhost:5000/api/user/twillio").then((response) => {
+            console.log(response);
+            setTurnServers(response.data.token.iceServers);
+        });
         checkUser().then((e) => {
             user.setIsAuth(e);
             if (user.isAuth === true)

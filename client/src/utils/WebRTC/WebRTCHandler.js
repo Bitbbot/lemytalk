@@ -1,4 +1,5 @@
 import * as ws from "../wsConnection/wsConnection";
+import { getTurnServers } from "./TURN";
 
 const defaultConstrains = {
     video: true,
@@ -6,13 +7,6 @@ const defaultConstrains = {
 };
 
 let peerConnection;
-const configuration = {
-    iceServers: [
-        {
-            urls: "stun:stun.l.google.com:19302",
-        },
-    ],
-};
 
 export const getLocalStream = async (user) => {
     try {
@@ -28,6 +22,11 @@ export const getLocalStream = async (user) => {
 };
 
 const createPeerConnection = (localStream, user) => {
+    const turnServers = getTurnServers();
+    const configuration = {
+        iceServers: [...turnServers, { url: "stun:stun.l.google.com:19302" }],
+        iceTransportPolicy: "relay",
+    };
     peerConnection = new RTCPeerConnection(configuration);
     // const localStream=
     for (const track of localStream.getTracks()) {

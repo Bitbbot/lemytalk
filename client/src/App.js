@@ -19,6 +19,7 @@ import { connectionWithWebSocket } from "./utils/wsConnection/wsConnection";
 import AllowMedia from "./components/AllowMedia/AllowMedia";
 import axios from "axios";
 import { setTurnServers } from "./utils/WebRTC/TURN";
+import { SERVER_URL } from "./env";
 
 const App = observer(() => {
     const { user, modals } = useContext(Context);
@@ -34,42 +35,57 @@ const App = observer(() => {
             });
         };
     }, []);
+    const windowRef = useRef(null);
     useEffect(() => {
-        axios.get("http://localhost:5000/api/user/twillio").then((response) => {
+        window.visualViewport.addEventListener("resize", () => {
+            console.log("resize");
+            windowRef.current?.scrollIntoView({
+                // behavior: "smooth",
+                block: "nearest",
+                inline: "start",
+            });
+        });
+        return () => {
+            window.visualViewport.removeEventListener("resize", () => {});
+        };
+    }, []);
+    useEffect(() => {
+        axios.get(`${SERVER_URL}/api/user/twillio`).then((response) => {
             console.log(response);
             setTurnServers(response.data.token.iceServers);
-        });
-        checkUser().then((e) => {
-            user.setIsAuth(e);
-            if (user.isAuth === true)
-                getUser().then((response) => {
-                    try {
-                        user.setNativeLanguage(response.nativeLanguage);
-                        user.setStudiedLanguage(response.studiedLanguage);
-                        user.setLevel(response.languageLevel);
-                        user.setIsNotifications(response.isNotifications);
-                    } catch (e) {
-                        modals.setIsHello(true);
-                    }
-                    if (response === null) {
-                        createUser();
-                    }
-                    if (
-                        response?.nativeLanguage === "" &&
-                        response?.studiedLanguage === "" &&
-                        response?.languageLevel === ""
-                    )
-                        modals.setIsHello(true);
+            checkUser().then((e) => {
+                user.setIsAuth(e);
+                if (user.isAuth === true)
                     getUser().then((response) => {
-                        user.setId(response.authId);
+                        try {
+                            user.setNativeLanguage(response.nativeLanguage);
+                            user.setStudiedLanguage(response.studiedLanguage);
+                            user.setLevel(response.languageLevel);
+                            user.setIsNotifications(response.isNotifications);
+                        } catch (e) {
+                            modals.setIsHello(true);
+                        }
+                        if (response === null) {
+                            createUser();
+                        }
+                        if (
+                            response?.nativeLanguage === "" &&
+                            response?.studiedLanguage === "" &&
+                            response?.languageLevel === ""
+                        )
+                            modals.setIsHello(true);
+                        getUser().then((response) => {
+                            user.setId(response.authId);
+                        });
+                        connectionWithWebSocket();
                     });
-                    connectionWithWebSocket();
-                });
+            });
         });
     }, []);
     return (
         <Router>
             <div className="App" ref={width}>
+                <div ref={windowRef} className="windowRef"></div>
                 <Header />
                 <Routes>
                     <Route path="/" element={<Home />} />

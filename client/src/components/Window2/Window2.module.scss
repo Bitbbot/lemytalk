@@ -16,6 +16,16 @@
         display: block;
         z-index: 1;}
 }
+@media screen and (max-width: 900px) {
+    .wrapper{
+        height: 342px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .wrapper{
+        height: 297px;
+    }
+}
 @media screen and (max-width: 767px) {
     .wrapper{
         position: relative;

@@ -13,7 +13,15 @@ export default class UserStore {
         this._studiedLanguage = "";
         this._level = "";
         this._isNotifications = false;
+        this._isUsingKeyboard = false;
+        this._viewPortHeight = 0;
         makeAutoObservable(this);
+    }
+    setViewPortHeight(num) {
+        this._viewPortHeight = num;
+    }
+    setIsUsingKeyboard(bool) {
+        this._isUsingKeyboard = bool;
     }
     setIsAuth(bool) {
         this._isAuth = bool;
@@ -47,6 +55,9 @@ export default class UserStore {
     }
     get isNotifications() {
         return this._isNotifications;
+    }
+    get viewPortHeight() {
+        return this._viewPortHeight;
     }
     get width() {
         return this._width;

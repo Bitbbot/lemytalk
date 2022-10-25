@@ -7,6 +7,8 @@ import classNames from "classnames";
 import { observer } from "mobx-react-lite";
 import { useContext } from "react";
 import { Context } from "../../index";
+import { getLocalStream } from "../../utils/WebRTC/WebRTCHandler";
+import { findPartner } from "../../utils/wsConnection/wsConnection";
 
 const MobileButtons = observer(() => {
     const { user } = useContext(Context);
@@ -53,6 +55,18 @@ const MobileButtons = observer(() => {
                     className={classNames([s.start, s.button])}
                     onClick={() => {
                         if (user.isAuth === true) {
+                            if (user.localStream === null) {
+                                getLocalStream(user).then((stream) => {
+                                    console.log(stream + "");
+                                    if (stream) {
+                                        user.setLocalStream(stream);
+                                        findPartner(user);
+                                    } else modals.setIsAllowMedia(true);
+                                    console.log(user.localStream);
+                                });
+                            } else {
+                                findPartner(user);
+                            }
                         } else {
                             modals.setIsLogin(true);
                         }

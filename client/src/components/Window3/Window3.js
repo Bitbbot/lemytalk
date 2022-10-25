@@ -11,7 +11,7 @@ const Window3 = observer(() => {
     const [element, setElement] = useState("chat");
     return (
         <div className={s.wrapper}>
-            {user.width > 1300 ? (
+            {user.width > 1317 ? (
                 <>
                     <Translate />
                     <Chat />

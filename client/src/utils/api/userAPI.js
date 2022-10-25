@@ -1,21 +1,23 @@
-import { $host } from "./index";
+// import { $host } from "./index";
 import { SERVER_URL } from "../../env";
+import axios from "axios";
 
 export const checkUser = async () => {
-    const response = await $host.get(`${SERVER_URL}/api/auth/login/success`, {
+    const response = await axios.get(`${SERVER_URL}/api/auth/login/success`, {
+        cacheControl: false,
         withCredentials: true,
     });
     if (response.status === 200) return true;
 };
 
 export const getUser = async () => {
-    const response = await $host.get(`${SERVER_URL}/api/user/`, {
+    const response = await axios.get(`${SERVER_URL}/api/user/`, {
         withCredentials: true,
     });
     return response.data;
 };
 export const createUser = async () => {
-    const response = await $host.post(`${SERVER_URL}/api/user/`, "", {
+    const response = await axios.post(`${SERVER_URL}/api/user/`, "", {
         withCredentials: true,
     });
     return response.data;
@@ -26,7 +28,7 @@ export const updateLanguages = async (
     languageLevel,
     isNotifications
 ) => {
-    const response = await $host.put(
+    const response = await axios.put(
         `${SERVER_URL}/api/user/updateLanguages/`,
         {
             nativeLanguage,

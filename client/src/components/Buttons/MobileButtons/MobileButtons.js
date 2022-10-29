@@ -1,14 +1,14 @@
 import s from "./MobileButtons.module.scss";
-import start from "../../assets/img/start.svg";
-import stop from "../../assets/img/stop.svg";
-import report from "../../assets/img/report.svg";
-import options from "../../assets/img/options.svg";
+import start from "../../../assets/img/start.svg";
+import stop from "../../../assets/img/stop.svg";
+import report from "../../../assets/img/report.svg";
+import options from "../../../assets/img/options.svg";
 import classNames from "classnames";
 import { observer } from "mobx-react-lite";
 import { useContext } from "react";
-import { Context } from "../../index";
-import { getLocalStream } from "../../utils/WebRTC/WebRTCHandler";
-import { findPartner } from "../../utils/wsConnection/wsConnection";
+import { Context } from "../../../index";
+import { getLocalStream } from "../../../utils/WebRTC/WebRTCHandler";
+import { findPartner } from "../../../utils/wsConnection/wsConnection";
 
 const MobileButtons = observer(() => {
     const { user } = useContext(Context);

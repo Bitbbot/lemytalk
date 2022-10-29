@@ -29,6 +29,7 @@ const LocalVideo = observer(() => {
                     ></video>
                 </div>
             ) : (
+                // <div></div>
                 <img src={noise} width="100%" className={s.img} />
             )}
         </div>

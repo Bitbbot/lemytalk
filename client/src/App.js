@@ -38,12 +38,12 @@ const App = observer(() => {
     const windowRef = useRef(null);
     useEffect(() => {
         window.visualViewport.addEventListener("resize", () => {
-            console.log("resize");
             windowRef.current?.scrollIntoView({
                 // behavior: "smooth",
                 block: "nearest",
                 inline: "start",
             });
+            user.setViewPortHeight(window.visualViewport.height);
         });
         return () => {
             window.visualViewport.removeEventListener("resize", () => {});

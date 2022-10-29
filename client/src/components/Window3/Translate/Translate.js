@@ -1,5 +1,5 @@
 import s from "./Translate.module.scss";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../../../index";
 import classNames from "classnames";
 import { observer } from "mobx-react-lite";

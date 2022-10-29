@@ -2,7 +2,7 @@ import * as ws from "../wsConnection/wsConnection";
 import { getTurnServers } from "./TURN";
 
 const defaultConstrains = {
-    video: true,
+    video: { width: 480, height: 480 },
     audio: true,
 };
 

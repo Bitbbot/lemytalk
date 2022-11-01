@@ -1,8 +1,8 @@
 import s from "./Report.module.scss";
-import Close from "../../assets/img/close.png";
+import Close from "../../../assets/img/close.png";
 import { useContext, useState } from "react";
 import { observer } from "mobx-react-lite";
-import { Context } from "../../index";
+import { Context } from "../../../index";
 
 const Report = observer(() => {
     const { modals } = useContext(Context);

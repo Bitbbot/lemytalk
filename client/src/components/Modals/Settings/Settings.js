@@ -1,12 +1,12 @@
-import s from "./LanguageButtons.module.scss";
-import { languages } from "../../../env";
+import s from "./Settings.module.scss";
+import { languages } from "../../../utils/constants/languages";
 import { observer } from "mobx-react-lite";
 import { useContext, useState } from "react";
 import { Context } from "../../../index";
 import { updateLanguages } from "../../../utils/api/userAPI";
 import classNames from "classnames";
 
-const LanguageButtons = observer(() => {
+const Settings = observer(() => {
     const { modals, user } = useContext(Context);
     const handleClose = () => {
         if (
@@ -120,4 +120,4 @@ const LanguageButtons = observer(() => {
         return <div></div>;
     }
 });
-export default LanguageButtons;
+export default Settings;

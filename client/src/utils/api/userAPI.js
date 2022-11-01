@@ -16,6 +16,7 @@ export const getUser = async () => {
     });
     return response.data;
 };
+
 export const createUser = async () => {
     const response = await axios.post(`${SERVER_URL}/api/user/`, "", {
         withCredentials: true,

@@ -4,7 +4,6 @@ import userController from "../controllers/userController.js";
 import twilio from "twilio";
 
 router.get("/", userController.getOne);
-// router.get("/number");
 router.post("/", userController.create);
 router.put("/updateLanguages", userController.updateLanguages);
 router.get("/twillio", (req, res) => {

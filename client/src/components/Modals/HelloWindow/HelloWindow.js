@@ -1,11 +1,11 @@
 import s from "./HelloWindow.module.scss";
 import { useContext, useState } from "react";
 import { observer } from "mobx-react-lite";
-import { Context } from "../../index";
-import start from "../../assets/img/start.svg";
-import stop from "../../assets/img/stop.svg";
-import report from "../../assets/img/report.svg";
-import options from "../../assets/img/options.svg";
+import { Context } from "../../../index";
+import start from "../../../assets/img/start.svg";
+import stop from "../../../assets/img/stop.svg";
+import report from "../../../assets/img/report.svg";
+import options from "../../../assets/img/options.svg";
 import classNames from "classnames";
 
 const Report = observer(() => {

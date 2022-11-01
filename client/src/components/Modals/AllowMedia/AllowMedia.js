@@ -1,8 +1,8 @@
 import s from "./AllowMedia.module.scss";
-import Close from "../../assets/img/close.png";
+import Close from "../../../assets/img/close.png";
 import { useContext } from "react";
 import { observer } from "mobx-react-lite";
-import { Context } from "../../index";
+import { Context } from "../../../index";
 
 const AllowMedia = observer(() => {
     const { modals } = useContext(Context);

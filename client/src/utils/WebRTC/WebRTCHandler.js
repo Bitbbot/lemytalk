@@ -28,7 +28,7 @@ const createPeerConnection = (localStream, user) => {
         iceTransportPolicy: "relay",
     };
     peerConnection = new RTCPeerConnection(configuration);
-    // const localStream=
+
     for (const track of localStream.getTracks()) {
         peerConnection.addTrack(track, localStream);
     }
@@ -65,7 +65,6 @@ export const handleAnswer = async (data) => {
 };
 export const handleCandidate = async (data) => {
     try {
-        console.log("adding_ice");
         await peerConnection.addIceCandidate(data.candidate);
     } catch (err) {
         console.log(err);

@@ -1,10 +1,10 @@
-import Close from "../../assets/img/close.png";
+import Close from "../../../assets/img/close.png";
 import s from "./Login.module.scss";
 import { observer } from "mobx-react-lite";
 import { useContext } from "react";
-import { Context } from "../../index";
+import { Context } from "../../../index";
 import classNames from "classnames";
-import { SERVER_URL } from "../../env";
+import { SERVER_URL } from "../../../env";
 
 const Login = observer(() => {
     const { modals } = useContext(Context);

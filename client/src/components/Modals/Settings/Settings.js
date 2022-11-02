@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { Context } from "../../../index";
 import { updateLanguages } from "../../../utils/api/userAPI";
 import classNames from "classnames";
+import Close from "../../../assets/img/close.png";
 
 const Settings = observer(() => {
     const { modals, user } = useContext(Context);
@@ -27,8 +28,30 @@ const Settings = observer(() => {
         return (
             <div className={s.wrapper}>
                 <div className={s.options_wrapper}>
+                    <div className={s.close_wrapper}>
+                        <div
+                            className={s.close_img_wrapper}
+                            onClick={() => {
+                                modals.setIsSettings(false);
+                            }}
+                        >
+                            <img
+                                src={Close}
+                                width="20px"
+                                height="20px"
+                                className={s.close_img}
+                            />
+                        </div>
+                    </div>
                     <div>
-                        <div className={s.description}>Native language</div>
+                        <div
+                            className={classNames([
+                                s.description,
+                                s.description1,
+                            ])}
+                        >
+                            Native language
+                        </div>
                         <select
                             onChange={(e) => {
                                 user.setNativeLanguage(e.target.value);

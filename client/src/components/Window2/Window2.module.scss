@@ -16,6 +16,61 @@
         display: block;
         z-index: 1;}
 }
+@media screen and (max-width: 2000px) {
+    .wrapper{
+        height: 685px;
+    }
+}
+@media screen and (max-width: 1900px) {
+    .wrapper{
+        height: 665px;
+    }
+}
+@media screen and (max-width: 1800px) {
+    .wrapper{
+        height: 645px;
+    }
+}
+@media screen and (max-width: 1700px) {
+    .wrapper{
+        height: 625px;
+    }
+}
+@media screen and (max-width: 1600px) {
+    .wrapper{
+        height: 585px;
+    }
+}
+@media screen and (max-width: 1500px) {
+    .wrapper{
+        height: 555px;
+    }
+}
+@media screen and (max-width: 1400px) {
+    .wrapper{
+        height: 525px;
+    }
+}
+@media screen and (max-width: 1300px) {
+    .wrapper{
+        height: 494px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .wrapper{
+        height: 452px;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .wrapper{
+        height: 412px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .wrapper{
+        height: 372px;
+    }
+}
 @media screen and (max-width: 900px) {
     .wrapper{
         height: 342px;

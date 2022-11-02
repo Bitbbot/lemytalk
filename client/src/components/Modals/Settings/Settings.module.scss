@@ -13,7 +13,7 @@
 }
 .options_wrapper{
     background-color: white;
-    padding: 0 20px 20px 20px;
+    padding: 20px 20px 20px 20px;
     border-radius: 12px;
     width: 300px;
     display: flex;
@@ -31,6 +31,9 @@
 .description{
     margin-top: 15px;
     text-align: center;
+}
+.description1{
+    margin-top: 0px;
 }
 select{
     width: 190px;
@@ -85,4 +88,18 @@ select{
 }
 .not_active:hover{
     background-color: #c9c9c9;
+}
+.close_img_wrapper{
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    cursor: pointer;
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        z-index: 1;}
 }

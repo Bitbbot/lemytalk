@@ -86,6 +86,11 @@ const App = observer(() => {
                 <Report />
                 <HelloWindow />
                 <AllowMedia />
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                    <a href="https://t.me/hgrughrg" target="_blank">
+                        Developer
+                    </a>
+                </div>
             </div>
         </Router>
     );

@@ -1,5 +1,5 @@
 import * as ws from "../wsConnection/wsConnection";
-import { getTurnServers } from "./TURN";
+import { getTURN } from "../api/userAPI";
 
 const defaultConstrains = {
     video: { width: 480, height: 480 },
@@ -13,7 +13,7 @@ export const getLocalStream = async (user) => {
         const stream = await navigator.mediaDevices.getUserMedia(
             defaultConstrains
         );
-        createPeerConnection(stream, user);
+        await createPeerConnection(stream, user);
         return stream;
     } catch (err) {
         console.log("error occurred trying to get access to local stream");
@@ -21,8 +21,8 @@ export const getLocalStream = async (user) => {
     }
 };
 
-const createPeerConnection = (localStream, user) => {
-    const turnServers = getTurnServers();
+const createPeerConnection = async (localStream, user) => {
+    const turnServers = await getTURN();
     const configuration = {
         iceServers: [...turnServers, { url: "stun:stun.l.google.com:19302" }],
         iceTransportPolicy: "relay",

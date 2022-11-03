@@ -32,7 +32,7 @@ const Settings = observer(() => {
                         <div
                             className={s.close_img_wrapper}
                             onClick={() => {
-                                modals.setIsSettings(false);
+                                handleClose();
                             }}
                         >
                             <img

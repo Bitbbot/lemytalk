@@ -5,7 +5,7 @@ import { useContext, useState } from "react";
 import { Context } from "../../../index";
 import { updateLanguages } from "../../../utils/api/userAPI";
 import classNames from "classnames";
-import Close from "../../../assets/img/close.png";
+import Close from "../Close";
 
 const Settings = observer(() => {
     const { modals, user } = useContext(Context);
@@ -24,123 +24,93 @@ const Settings = observer(() => {
             );
         }
     };
-    if (modals.isSettings === true) {
-        return (
-            <div className={s.wrapper}>
-                <div className={s.options_wrapper}>
-                    <div className={s.close_wrapper}>
+    return (
+        <>
+            <Close callback={handleClose} />
+            <div>
+                <div className={classNames([s.description, s.description1])}>
+                    Native language
+                </div>
+                <select
+                    onChange={(e) => {
+                        user.setNativeLanguage(e.target.value);
+                    }}
+                    defaultValue={user.nativeLanguage}
+                >
+                    {languages.names.map((name) => (
+                        <option key={name}>{name}</option>
+                    ))}
+                </select>
+            </div>
+            <div>
+                <div className={s.description}>Studied language</div>
+                <select
+                    onChange={(e) => {
+                        user.setStudiedLanguage(e.target.value);
+                    }}
+                    defaultValue={user.studiedLanguage}
+                >
+                    {languages.names.map((name) => (
+                        <option key={name}>{name}</option>
+                    ))}
+                </select>
+            </div>
+            <div>
+                <div className={s.description}>Level</div>
+                <select
+                    onChange={(e) => {
+                        user.setLevel(e.target.value);
+                    }}
+                    defaultValue={user.level}
+                >
+                    {languages.levels.map((level) => (
+                        <option key={level}>{level}</option>
+                    ))}
+                </select>
+            </div>
+            <div className={s.checkbox_wrapper}>
+                <input
+                    type="checkbox"
+                    checked={user.isNotifications}
+                    className={s.checkbox}
+                    onChange={() => {
+                        user.setIsNotifications(!user.isNotifications);
+                    }}
+                />
+                <div className={s.checkbox_description}>
+                    Send me updates, recommendations and learning tips
+                </div>
+            </div>
+            <div>
+                {user.nativeLanguage !== "" &&
+                user.studiedLanguage !== "" &&
+                user.level !== "" ? (
+                    <div>
                         <div
-                            className={s.close_img_wrapper}
+                            className={s.save}
                             onClick={() => {
                                 handleClose();
                             }}
                         >
-                            <img
-                                src={Close}
-                                width="20px"
-                                height="20px"
-                                className={s.close_img}
-                            />
+                            Save
                         </div>
                     </div>
+                ) : (
                     <div>
-                        <div
-                            className={classNames([
-                                s.description,
-                                s.description1,
-                            ])}
-                        >
-                            Native language
-                        </div>
-                        <select
-                            onChange={(e) => {
-                                user.setNativeLanguage(e.target.value);
-                            }}
-                            defaultValue={user.nativeLanguage}
-                        >
-                            {languages.names.map((name) => (
-                                <option key={name}>{name}</option>
-                            ))}
-                        </select>
-                    </div>
-                    <div>
-                        <div className={s.description}>Studied language</div>
-                        <select
-                            onChange={(e) => {
-                                user.setStudiedLanguage(e.target.value);
-                            }}
-                            defaultValue={user.studiedLanguage}
-                        >
-                            {languages.names.map((name) => (
-                                <option key={name}>{name}</option>
-                            ))}
-                        </select>
-                    </div>
-                    <div>
-                        <div className={s.description}>Level</div>
-                        <select
-                            onChange={(e) => {
-                                user.setLevel(e.target.value);
-                            }}
-                            defaultValue={user.level}
-                        >
-                            {languages.levels.map((level) => (
-                                <option key={level}>{level}</option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className={s.checkbox_wrapper}>
-                        <input
-                            type="checkbox"
-                            checked={user.isNotifications}
-                            className={s.checkbox}
-                            onChange={() => {
-                                user.setIsNotifications(!user.isNotifications);
-                            }}
-                        />
-                        <div className={s.checkbox_description}>
-                            Send me updates, recommendations and learning tips
+                        <div className={classNames([s.save, s.not_active])}>
+                            Save
                         </div>
                     </div>
-                    <div>
-                        {user.nativeLanguage !== "" &&
-                        user.studiedLanguage !== "" &&
-                        user.level !== "" ? (
-                            <div>
-                                <div
-                                    className={s.save}
-                                    onClick={() => {
-                                        handleClose();
-                                    }}
-                                >
-                                    Save
-                                </div>
-                            </div>
-                        ) : (
-                            <div>
-                                <div
-                                    className={classNames([
-                                        s.save,
-                                        s.not_active,
-                                    ])}
-                                >
-                                    Save
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                    <div className={s.error}>
-                        {user.nativeLanguage !== "" &&
-                        user.studiedLanguage !== "" &&
-                        user.level !== ""
-                            ? ""
-                            : "To continue choose your native language, studied language and it's level"}
-                    </div>
-                </div>
+                )}
             </div>
-        );
-    } else {
-        return <div></div>;
-    }
+            <div className={s.error}>
+                {user.nativeLanguage !== "" &&
+                user.studiedLanguage !== "" &&
+                user.level !== ""
+                    ? ""
+                    : "To continue choose your native language, studied language and it's level"}
+            </div>
+        </>
+    );
 });
 export default Settings;

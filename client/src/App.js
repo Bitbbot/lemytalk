@@ -17,6 +17,7 @@ import Report from "./components/Modal/Report/Report";
 import HelloWindow from "./components/Modal/HelloWindow/HelloWindow";
 import { connectionWithWebSocket } from "./utils/wsConnection/wsConnection";
 import AllowMedia from "./components/Modal/AllowMedia/AllowMedia";
+import Modal from "./components/Modal/Modal";
 
 const App = observer(() => {
     const { user, modals } = useContext(Context);
@@ -74,11 +75,11 @@ const App = observer(() => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                 </Routes>
-                <Login />
-                <Settings />
-                <Report />
-                <HelloWindow />
-                <AllowMedia />
+                <Modal Modal={<Settings />} state={"isSettings"} />
+                <Modal Modal={<Report />} state={"isReport"} />
+                <Modal Modal={<Login />} state={"isLogin"} />
+                <Modal Modal={<HelloWindow />} state={"isHello"} />
+                <Modal Modal={<AllowMedia />} state={"isAllowMedia"} />
             </div>
         </Router>
         //https://t.me/hgrughrg

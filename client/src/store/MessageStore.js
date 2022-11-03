@@ -24,7 +24,7 @@ export default class MessageStore {
             {
                 user: "you",
                 text: "kinda",
-                id: 8,
+                id: 10,
             },
         ];
         makeAutoObservable(this);

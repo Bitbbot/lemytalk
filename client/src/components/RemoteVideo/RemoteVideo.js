@@ -1,8 +1,8 @@
 import { observer } from "mobx-react-lite";
 import { useContext, useEffect, useRef } from "react";
-import { Context } from "../../../index";
+import { Context } from "../../index";
 import s from "./RemoteVideo.module.scss";
-import noise from "../../../assets/img/Untitled8.svg";
+import noise from "../../assets/img/Untitled8.svg";
 
 const RemoteVideo = observer(() => {
     const { user } = useContext(Context);

@@ -18,6 +18,7 @@ import HelloWindow from "./components/Modal/HelloWindow/HelloWindow";
 import { connectionWithWebSocket } from "./utils/wsConnection/wsConnection";
 import AllowMedia from "./components/Modal/AllowMedia/AllowMedia";
 import Modal from "./components/Modal/Modal";
+import "dotenv/config";
 
 const App = observer(() => {
     const { user, modals } = useContext(Context);

@@ -1,7 +1,9 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { PORT } from "./env.js";
+import * as dotenv from "dotenv";
 
+dotenv.config();
 const httpServer = createServer();
 const io = new Server(httpServer, {
     cors: {

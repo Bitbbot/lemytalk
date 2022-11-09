@@ -8,9 +8,12 @@ import router from "./routes/index.js";
 import { CLIENT_URL, PORT } from "./env.js";
 import cookieParser from "cookie-parser";
 import { sequelize } from "./db.js";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 
+console.log(process.env.GGG);
 app.use(
     cookieSession({
         name: "session",

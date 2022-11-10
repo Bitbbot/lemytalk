@@ -84,7 +84,7 @@ const App = observer(() => {
         <Modal Modal={<AllowMedia />} state="isAllowMedia" />
       </div>
     </Router>
-    // https://t.me/hgrughrgjhj
+    // https://t.me/hgrughrgjhjППП
   );
 });
 

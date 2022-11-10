@@ -5,7 +5,7 @@
 
 // develop-v
 export const CLIENT_URL = "http://localhost:3000";
-export const DB_PASSWORD = "postgres";
+export const DB_PASSWORD = "root";
 export const DB_HOST = "localhost";
 
 export const DB_NAME = "lemytalk";

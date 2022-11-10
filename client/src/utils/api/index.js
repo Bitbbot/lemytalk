@@ -1,7 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
 const $host = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
+// eslint-disable-next-line import/prefer-default-export
 export { $host };

@@ -1,7 +1,10 @@
 import s from './Message.module.scss';
 
 // eslint-disable-next-line react/prop-types
-function Message({ user, text }) {
+function Message({ message }) {
+  // eslint-disable-next-line react/prop-types
+  const { user, text } = message;
+
   return (
     <div className={s.wrapper}>
       {user === 'you' ? (
@@ -21,4 +24,5 @@ function Message({ user, text }) {
     </div>
   );
 }
+
 export default Message;

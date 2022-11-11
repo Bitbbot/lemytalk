@@ -1,5 +1,4 @@
 import socketClient from 'socket.io-client';
-import { SIGNALING_SERVER_URL } from '../../env';
 import * as webRTCHandler from '../WebRTC/WebRTCHandler';
 
 let partnerSocketId;
@@ -7,7 +6,7 @@ let partnerUserId;
 let socket;
 
 export const connectionWithWebSocket = () => {
-  socket = socketClient(SIGNALING_SERVER_URL);
+  socket = socketClient(process.env.REACT_APP_SIGNALING_SERVER_URL);
   socket.on('connection', () => {
     partnerUserId = socket.id;
   });

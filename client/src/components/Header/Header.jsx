@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import s from './Header.module.scss';
 import Context from '../../index';
-import { SERVER_URL } from '../../env';
 
 const Header = observer(() => {
   const { user } = useContext(Context);
@@ -22,7 +21,7 @@ const Header = observer(() => {
             className={s.login}
             onClick={() => {
               window.open(
-                `${SERVER_URL}/api/auth/logout`,
+                `${process.env.REACT_APP_SERVER_URL}/auth/logout`,
                 '_self',
               );
             }}

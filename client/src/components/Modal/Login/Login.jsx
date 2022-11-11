@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import Close from '../Close';
 import s from './Login.module.scss';
 import Context from '../../../index';
-import { SERVER_URL } from '../../../env';
 
 const Login = observer(() => {
   const { modals } = useContext(Context);
@@ -23,7 +22,7 @@ const Login = observer(() => {
             className={classNames([s.button, s.google])}
             onClick={() => {
               window.open(
-                `${SERVER_URL}/api/auth/google`,
+                `${process.env.REACT_APP_SERVER_URL}/auth/google`,
                 '_self',
               );
             }}

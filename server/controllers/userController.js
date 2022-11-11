@@ -1,6 +1,9 @@
 import { User } from "../models/models.js";
 import ApiError from "../error/ApiError.js";
 import twilio from "twilio";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 class UserController {
     async create(req, res, next) {
@@ -53,8 +56,8 @@ class UserController {
     }
     async getTwilio(req, res, next) {
         try {
-            const accountSid = "AC32bf5c4d6c653c092f25b8b4645d5894";
-            const authToken = "fa7ecab75de22476bf241f22a7d2a338";
+            const accountSid = process.env.ACCOUNT_SID;
+            const authToken = process.env.AUTH_TOKEN;
             const client = twilio(accountSid, authToken);
             client.tokens.create().then((token) => res.send({ token }));
         } catch (e) {

@@ -1,5 +1,6 @@
-import { CLIENT_URL } from "../env.js";
 import ApiError from "../error/ApiError.js";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 class AuthController {
     async loginSuccess(req, res, next) {
@@ -32,7 +33,7 @@ class AuthController {
     async logoutRoute(req, res, next) {
         try {
             req.logout();
-            return res.redirect(CLIENT_URL);
+            return res.redirect(process.env.CLIENT_URL);
         } catch (e) {
             next(ApiError.badRequest(e.message));
         }

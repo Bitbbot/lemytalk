@@ -1,19 +1,16 @@
-import * as models from "./models/models.js";
 import cookieSession from "cookie-session";
 import express from "express";
 import cors from "cors";
-import passportSetup from "./passport.js";
 import passport from "passport";
 import router from "./routes/index.js";
-import { CLIENT_URL, PORT } from "./env.js";
 import cookieParser from "cookie-parser";
 import { sequelize } from "./db.js";
 import * as dotenv from "dotenv";
+
 dotenv.config();
 
 const app = express();
 
-console.log(process.env.GGG);
 app.use(
     cookieSession({
         name: "session",
@@ -26,7 +23,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(
     cors({
-        origin: CLIENT_URL,
+        origin: process.env.CLIENT_URL,
         methods: "GET,POST,PUT,DELETE",
         credentials: true,
     })
@@ -38,8 +35,8 @@ const start = async () => {
     try {
         await sequelize.authenticate();
         await sequelize.sync();
-        app.listen(PORT, () =>
-            console.log(`Server started on port ${process.env.PORT || PORT}`)
+        app.listen(process.env.PORT, () =>
+            console.log(`Server started on port ${process.env.PORT}`)
         );
     } catch (e) {
         console.log(e);

@@ -22,7 +22,7 @@ const Login = observer(() => {
             className={classNames([s.button, s.google])}
             onClick={() => {
               window.open(
-                `${process.env.REACT_APP_SERVER_URL}/auth/google`,
+                `${process.env.REACT_APP_SERVER_URL}auth/google`,
                 '_self',
               );
             }}

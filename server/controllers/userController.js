@@ -2,7 +2,6 @@ import { User } from "../models/models.js";
 import ApiError from "../error/ApiError.js";
 import twilio from "twilio";
 import * as dotenv from "dotenv";
-
 dotenv.config();
 
 class UserController {

@@ -1,12 +1,13 @@
+import * as models from "./models/models.js";
 import cookieSession from "cookie-session";
 import express from "express";
 import cors from "cors";
+import passportSetup from "./passport.js";
 import passport from "passport";
 import router from "./routes/index.js";
 import cookieParser from "cookie-parser";
 import { sequelize } from "./db.js";
 import * as dotenv from "dotenv";
-
 dotenv.config();
 
 const app = express();
@@ -35,8 +36,8 @@ const start = async () => {
     try {
         await sequelize.authenticate();
         await sequelize.sync();
-        app.listen(process.env.PORT, () =>
-            console.log(`Server started on port ${process.env.PORT}`)
+        app.listen(process.env.SERVER_PORT, () =>
+            console.log(`Server started on port ${process.env.SERVER_PORT}`)
         );
     } catch (e) {
         console.log(e);

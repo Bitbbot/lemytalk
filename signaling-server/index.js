@@ -1,9 +1,8 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { PORT } from "./env.js";
 import * as dotenv from "dotenv";
-
 dotenv.config();
+
 const httpServer = createServer();
 const io = new Server(httpServer, {
     cors: {
@@ -116,4 +115,4 @@ io.on("connection", (socket) => {
         });
     });
 });
-httpServer.listen(process.env.PORT || PORT);
+httpServer.listen(process.env.SIGNALING_SERVER_PORT);

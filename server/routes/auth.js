@@ -1,10 +1,9 @@
 import { Router } from "express";
+const router = new Router();
 import authController from "../controllers/authController.js";
 import passport from "passport";
 import * as dotenv from "dotenv";
 dotenv.config();
-
-const router = new Router();
 
 router.get("/login/success", authController.loginSuccess);
 
@@ -13,9 +12,8 @@ router.get("/login/failed", authController.loginFailed);
 router.get("/logout", authController.logoutRoute);
 
 router.get(
-    "/google", 
+    "/google",
     passport.authenticate("google", { scope: ["profile", "email"] })
-
 );
 
 router.get(

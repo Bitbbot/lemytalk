@@ -23,6 +23,23 @@
                 "ignoreExternal": true
             }
         ],
-        "no-underscore-dangle": [0, { "allowAfterThis": true }]
+        "no-underscore-dangle": [
+            0,
+            {
+                "allowAfterThis": true
+            }
+        ],
+        "linebreak-style": [
+            0,
+            "windows"
+        ],
+        "indent": [
+            0,
+            "tab"
+        ],
+        "react/jsx-indent": [
+            0,
+            "tab"
+        ]
     }
 }

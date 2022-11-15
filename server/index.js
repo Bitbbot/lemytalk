@@ -16,7 +16,7 @@ app.use(
     cookieSession({
         name: "session",
         keys: ["lama"],
-        maxAge: 24 * 60 * 60 * 10000,
+        maxAge: 24 * 60 * 60 * 1000,
     })
 );
 app.use(cookieParser());

@@ -1,12 +1,12 @@
 import { observer } from 'mobx-react-lite';
 import { useContext, useState } from 'react';
 import classNames from 'classnames';
-import s from './Window3.module.scss';
+import s from './ChatTranslator.module.scss';
 import Translate from './Translate/Translate';
 import Chat from './Chat/Chat';
 import Context from '../../index';
 
-const Window3 = observer(() => {
+const ChatTranslator = observer(() => {
   const { user } = useContext(Context);
   const [element, setElement] = useState('chat');
   return (
@@ -62,4 +62,4 @@ const Window3 = observer(() => {
     </div>
   );
 });
-export default Window3;
+export default ChatTranslator;

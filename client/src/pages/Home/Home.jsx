@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import classNames from 'classnames';
-import Window3 from '../../components/Window3/Window3';
+import ChatTranslator from '../../components/ChatTranslator/ChatTranslator';
 import Buttons from '../../components/Buttons/Buttons';
 import s from './Home.module.scss';
 import MobileButtons from '../../components/Buttons/MobileButtons/MobileButtons';
@@ -21,7 +21,7 @@ const Home = observer(() => (
           <MobileButtons />
         </div>
       </div>
-      <Window3 />
+      <ChatTranslator />
     </div>
     <div className={s.buttons_desktop}>
       <Buttons />
